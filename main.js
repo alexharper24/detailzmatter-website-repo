@@ -151,6 +151,25 @@
   });
 })();
 
+/* Pre-tick the service a visitor arrived for, e.g. contact.html?service=correction.
+   Accepts several params or one comma-separated value. Unknown values are ignored. */
+(function () {
+  const form = document.getElementById('quoteForm');
+  if (!form || !window.location.search) return;
+  const wanted = new URLSearchParams(window.location.search)
+    .getAll('service')
+    .flatMap(v => v.split(','))
+    .map(v => v.trim().toLowerCase())
+    .filter(Boolean);
+  if (!wanted.length) return;
+  wanted.forEach(slug => {
+    const box = form.querySelector('input[data-service="' + CSS.escape(slug) + '"]');
+    if (!box || box.checked) return;
+    box.checked = true;
+    box.closest('.opt')?.classList.add('prefilled');
+  });
+})();
+
 /* Quote form — AJAX submit, on-page thank-you, un-configured guard */
 (function () {
   const form = document.getElementById('quoteForm');
