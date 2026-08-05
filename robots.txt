@@ -1,0 +1,6 @@
+# DRAFT MODE: site is not launched yet. At launch, change "Disallow: /" to "Allow: /"
+# and remove the noindex meta tags from every page.
+User-agent: *
+Disallow: /
+
+Sitemap: https://detailzmatter.co/sitemap.xml

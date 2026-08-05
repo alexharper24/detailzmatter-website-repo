@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
+  <!-- DRAFT MODE: remove the noindex line and open robots.txt at launch -->
+  <meta name="robots" content="noindex,nofollow">
+  <title>Get a Free Quote | Detailz Matter, LLC in Ramsey, IN</title>
+  <meta name="description" content="Request a free auto detailing quote from Detailz Matter in Ramsey, Indiana. Paint correction, ceramic coating, interior and exterior details. Call or text (812) 621-6478.">
+  <link rel="canonical" href="https://detailzmatter.co/contact.html">
+  <meta name="geo.region" content="US-IN">
+  <meta name="geo.placename" content="Ramsey, Indiana">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Get a Free Quote | Detailz Matter, LLC">
+  <meta property="og:description" content="Request a free detailing quote. Mobile and shop service in the Ramsey, Indiana area.">
+  <meta property="og:url" content="https://detailzmatter.co/contact.html">
+  <meta property="og:image" content="https://detailzmatter.co/img/navigator-front.jpg">
+  <meta property="og:site_name" content="Detailz Matter, LLC">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico?v=1" sizes="any">
+  <link rel="icon" type="image/png" href="img/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark"><img src="img/logo.png?v=1" alt="Detailz Matter badge logo" width="52" height="52"></span>
+      <span class="name">Detailz Matter<span>We Shine Your Ride</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Our Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="btn nav-cta active">Get a Quote</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="section-dark" style="padding:4rem 0 3.2rem">
+  <div class="wrap section-head">
+    <p class="eyebrow">Get a Quote</p>
+    <h2>Tell Us About Your Vehicle</h2>
+    <p class="lead">Send the form below, or just call or text (812) 621-6478. Photos of problem spots help us quote faster and more accurately.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap contact-grid">
+    <div>
+      <!-- Replace YOUR_FORM_ID with the real Formspree form ID before launch -->
+      <form class="qform" id="quoteForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New Quote Request | Detailz Matter">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+               style="position:absolute;left:-9999px" aria-hidden="true">
+
+        <label for="fName">Your name</label>
+        <input type="text" id="fName" name="name" required autocomplete="name">
+
+        <label for="fPhone">Phone</label>
+        <input type="tel" id="fPhone" name="phone" required autocomplete="tel">
+
+        <label for="fEmail">Email</label>
+        <input type="email" id="fEmail" name="email" autocomplete="email">
+
+        <label for="fVehicle">Vehicle (year, make, model)</label>
+        <input type="text" id="fVehicle" name="vehicle" placeholder="2019 Ford F-150">
+
+        <fieldset>
+          <legend>What are you interested in?</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="service" value="Paint correction / scratch repair">Paint correction / scratch repair</label>
+            <label class="opt"><input type="checkbox" name="service" value="Ceramic coating">Ceramic coating</label>
+            <label class="opt"><input type="checkbox" name="service" value="Interior detail">Interior detail</label>
+            <label class="opt"><input type="checkbox" name="service" value="Exterior wash and detail">Exterior wash &amp; detail</label>
+            <label class="opt"><input type="checkbox" name="service" value="Not sure yet">Not sure yet</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Where should the work happen?</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="location" value="At the shop" checked>At the shop</label>
+            <label class="opt"><input type="radio" name="location" value="Mobile, come to me">Mobile, come to me</label>
+          </div>
+        </fieldset>
+
+        <label for="fMsg">Anything else we should know?</label>
+        <textarea id="fMsg" name="message" placeholder="Scratch on the driver door, dog hair in the back seat, whatever we should look at."></textarea>
+
+        <div class="submit-row"><button type="submit" class="btn btn-primary">Send My Request</button></div>
+        <p class="fine">We reply with availability and a quote. No spam, no mailing lists.</p>
+      </form>
+
+      <div class="form-thanks" id="formThanks" hidden>
+        <div class="thanks-badge">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2>Thank You!</h2>
+        <p>Your request is on its way. We will be in touch soon with availability and a quote.</p>
+      </div>
+    </div>
+
+    <aside class="side-card">
+      <h3>Reach Us Directly</h3>
+      <div class="row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><b>Call or text</b><a href="tel:+18126216478">(812) 621-6478</a></div>
+      </div>
+      <div class="row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <div><b>Facebook</b><a href="https://www.facebook.com/profile.php?id=100094147053222" rel="noopener" target="_blank">Detailz Matter, LLC</a></div>
+      </div>
+      <div class="row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><b>Service area</b><p>Ramsey, Indiana and the surrounding area. In shop or mobile.</p></div>
+      </div>
+      <div class="row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><b>Hours</b><p>By appointment. Call or text to schedule.</p></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow">How It Works</p>
+      <h2>From Request to Shine</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Send Your Request</h3><p>Form, call, or text. Tell us the vehicle and what is bugging you about it.</p></div>
+      <div class="step reveal"><h3>Get a Straight Quote</h3><p>We reply with what the job needs, what it costs, and when we can do it.</p></div>
+      <div class="step reveal"><h3>Shop or Driveway</h3><p>Drop it off at the shop in Ramsey or have us come to you.</p></div>
+      <div class="step reveal"><h3>Enjoy the Shine</h3><p>Walk around it, look it over, and drive off in a vehicle that looks right again.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brandline">
+          <img src="img/logo.png?v=1" alt="" width="64" height="64">
+          <div><div class="n">Detailz Matter</div><div class="t">We Shine Your Ride</div></div>
+        </div>
+        <p>Premium auto detailing in Ramsey, Indiana. Paint correction, ceramic coating, and full interior and exterior details. Mobile and shop service available.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Our Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><a href="tel:+18126216478">(812) 621-6478</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100094147053222" rel="noopener" target="_blank">Facebook</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Ramsey%2C+IN" rel="noopener" target="_blank">Ramsey, IN and surrounding area</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <span>&copy; 2026 Detailz Matter, LLC &middot; Ramsey, Indiana</span>
+      <span>Mobile &amp; shop detailing</span>
+    </div>
+  </div>
+</footer>
+
+<a class="mcall" href="tel:+18126216478" aria-label="Call Detailz Matter for a free quote">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  <span>Call for a Free Quote</span>
+</a>
+
+<div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+  <button class="lb-close" aria-label="Close image">&times;</button>
+  <img alt="">
+</div>
+
+<script src="main.js?v=1"></script>
+</body>
+</html>
