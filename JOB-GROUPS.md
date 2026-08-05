@@ -36,9 +36,10 @@ if unsure. A job can have more than one before/after pair; list extra pairs as
 All files live in `img/`. Every one of these is already committed and optimized, so
 regrouping is only an HTML edit, no image work.
 
-**Correction (7)**
-`correction-gloss` `correction-panel-1` `correction-panel-2` `correction-panel-3`
-`correction-fender-tape` `correction-worklight` `correction-compound-hood`
+**Correction (6)** — before/after is now encoded in the filename
+`correction-red-before-1` `correction-red-before-2` (the two showing swirls)
+`correction-red-after-1` `correction-red-after-2` (the two corrected)
+`correction-truck-before` `correction-truck-after`
 
 **Interior, clean (12)**
 `interior-cloth-1` `interior-cloth-2` `interior-cloth-3` `headliner-1` `headliner-2`
@@ -58,6 +59,7 @@ regrouping is only an HTML edit, no image work.
 `mustang-red-profile` `mustang-red-door` `mustang-yellow-front` `mustang-yellow-rear`
 `audi-q8-profile` `audi-q8-front` `wheel-detail` `bmw-front` `bmw-x6-side`
 `bmw-x6-rear` `volvo-xc90-profile` `volvo-xc90-front` `kia-sportage` `shop-corvette`
+`corvette-hood`
 
 Filenames carry the guessed model in them. **Renaming is cheap** if a name is wrong;
 say so and the file plus every reference gets renamed together.
@@ -66,24 +68,34 @@ say so and the file plus every reference gets renamed together.
 
 1. **The three interior before/after pairs are confirmed** and are live as flip
    cards on the Cloth Interior Deep Clean card (a `.jobcard.feature`, full row).
-2. **Correction groupings corrected.** `correction-fender-tape` +
-   `correction-worklight` are **one job**. `correction-panel-1..3` +
-   `correction-gloss` are **one job**. `correction-compound-hood` is the
-   **Corvette's hood**, so it sits on the Corvette card with `shop-corvette`.
-3. **Flip cards are the chosen presentation** for before/after. The side-by-side
+2. **Correction groupings corrected.** The taped fender and the work light shot are
+   **one job** (`correction-truck-before` + `correction-truck-after`, a before and
+   after, though of different areas of the truck). The four dark red panel shots are
+   **one job**. The old `correction-compound-hood` is the **Corvette's hood**.
+3. **The Corvette job is a wash and detail, not correction.** Its card is
+   `data-cat="exterior"`, and the hood photo was renamed `corvette-hood.jpg`. It was
+   also removed from the paint-correction illustration on Home and Services, where it
+   had been standing in for correction work it does not show.
+4. **Correction before/after designated.** `correction-red-before-1` and
+   `-before-2` are the "old" shots; `correction-red-after-1` and `-after-2` are
+   corrected. Files were **renamed to encode this**, because "panel 2 and 3" was
+   ambiguous between the preview page's A-labels and the old filenames, and the first
+   implementation inverted a pair as a result. The zoomed crops settle it: the two
+   `before` files show swirl marks and haze around the light reflections, the two
+   `after` files are clean. Home and Services now use an `after` file to illustrate
+   correction.
+5. **Flip cards are the chosen presentation** for before/after. The side-by-side
    variant was dropped, and its CSS/JS/markup removed rather than left as dead code.
 
 ## Still open
 
-1. **Before/after designation inside the two correction jobs.** Grouping is settled
-   but nobody has said which correction photo is the before and which is the after,
-   so those cards remain photo sets rather than flip cards. Question is staged on
-   `before-after-preview.html`.
-2. **The 925230/925231 batch is still split three ways by guesswork** into "Crew Cab
+1. **The 925230/925231 batch is still split three ways by guesswork** into "Crew Cab
    Truck", "Compact SUV", and "White SUV" cards. Colors clearly differ, but the
    split needs confirming, and there may be more vehicles than three.
-3. **All remaining vehicle descriptions are generic on purpose.** Confirmed names so
+2. **All remaining vehicle descriptions are generic on purpose.** Confirmed names so
    far: Lincoln Navigator (Logan's own post) and Corvette (Alex).
+3. **Logan's bio text.** The About portrait now stretches to match whatever height
+   the bio ends up being, so no layout work is needed when the copy lands.
 
 ## Filled-in jobs
 

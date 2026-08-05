@@ -122,6 +122,22 @@ section{padding:4.5rem 0}
   aspect-ratio:4/3}
 .split figure.tall{aspect-ratio:3/4}
 .split img{width:100%;height:100%;object-fit:cover}
+/* Bio variant: the portrait matches the height of the bio text beside it, whatever
+   length the bio ends up being. The image is absolutely positioned so it contributes
+   no intrinsic height of its own, otherwise the photo's own aspect ratio drives the
+   row and a long bio ends up taller than the picture next to it. object-position
+   sits high so the face stays in frame when the crop is short and wide. */
+.split.bio{align-items:stretch}
+.split.bio figure{position:relative;aspect-ratio:auto;height:100%;min-height:340px;
+  overflow:hidden}
+.split.bio figure img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:50% 18%}
+@media (max-width:960px){
+  /* height:auto must come back, or it beats aspect-ratio and the figure collapses
+     to the height of its (absolutely positioned, possibly unloaded) image. */
+  .split.bio figure{height:auto;min-height:0;aspect-ratio:4/5}
+  .split.bio figure img{position:absolute}
+}
 .split .checks{list-style:none;margin:1rem 0 1.6rem;padding:0;display:grid;gap:.65rem}
 .split .checks li{display:flex;gap:.6rem;align-items:flex-start;font-weight:500}
 .split .checks svg{color:var(--gold-deep);flex:none;margin-top:.25rem}
@@ -173,7 +189,11 @@ section{padding:4.5rem 0}
 }
 
 /* ---------- reviews ---------- */
-.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
+/* Four across, then straight to 2 + 2. Explicit steps rather than auto-fit, because
+   auto-fit drops to 3 + 1 at mid widths and the lone orphaned card looks broken. */
+.reviews{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+@media (max-width:1140px){.reviews{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.reviews{grid-template-columns:1fr}}
 .review{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);
   padding:1.7rem 1.6rem;display:flex;flex-direction:column;gap:.9rem}
 .review .quote-ico{color:var(--gold-deep);flex:none}
