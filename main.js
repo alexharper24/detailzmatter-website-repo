@@ -42,19 +42,34 @@
   setTimeout(showAll, 2500);
 })();
 
-/* Gallery filters */
+/* Gallery filters — filters whole job cards, and loose .g-item tiles if present */
 (function () {
   const btns = document.querySelectorAll('.filters button');
-  const items = document.querySelectorAll('.g-item');
   if (!btns.length) return;
+  const items = document.querySelectorAll('.jobcard[data-cat], .g-item[data-cat]');
   btns.forEach(btn => btn.addEventListener('click', () => {
     btns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const f = btn.dataset.filter;
     items.forEach(it => {
-      it.style.display = (f === 'all' || it.dataset.cat === f) ? '' : 'none';
+      const cats = (it.dataset.cat || '').split(/\s+/);
+      it.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
     });
   }));
+})();
+
+/* Flip cards — before on the front, after on the back */
+(function () {
+  document.querySelectorAll('.flip').forEach(card => {
+    const toggle = () => {
+      const flipped = card.classList.toggle('flipped');
+      card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+      const hint = card.querySelector('.flip-hint span');
+      if (hint) hint.textContent = flipped ? 'Tap for before' : 'Tap for after';
+    };
+    card.setAttribute('aria-pressed', 'false');
+    card.addEventListener('click', toggle);
+  });
 })();
 
 /* Lightbox — shared across gallery, before/after pairs, and zoomable page images.
@@ -67,7 +82,8 @@
   const prev = lb.querySelector('.lb-prev');
   const next = lb.querySelector('.lb-next');
   const cap = lb.querySelector('.lb-cap');
-  const triggers = Array.from(document.querySelectorAll('.g-item, .ba-pair figure, [data-zoom]'));
+  const triggers = Array.from(document.querySelectorAll(
+    '.g-item, .ba-pair figure, .jc-lead, .jc-thumb:not(.more), [data-zoom]'));
   let list = [], idx = -1;
 
   const imgOf = el => (el.matches('img') ? el : el.querySelector('img'));
@@ -79,7 +95,9 @@
     lbImg.src = img.currentSrc || img.src;
     lbImg.alt = img.alt || '';
     if (cap) {
-      const fc = el.querySelector('figcaption') || el.closest('.ba-pair')?.querySelector('.cap');
+      const fc = el.querySelector('figcaption')
+        || el.closest('.ba-pair')?.querySelector('.cap')
+        || el.closest('.jobcard')?.querySelector('.jc-head h3');
       const tag = el.querySelector('.tag');
       const label = [tag && tag.textContent, fc && fc.textContent.trim()].filter(Boolean).join(': ');
       cap.textContent = list.length > 1 ? `${label ? label + ' · ' : ''}${idx + 1} of ${list.length}` : label;
@@ -90,7 +108,12 @@
     if (next) next.hidden = !many;
   };
   const open = (el) => {
-    list = triggers.filter(isVisible);
+    // Inside a job card, the set is that job's photos, so the arrows walk one
+    // vehicle's visit. Elsewhere it is every visible trigger on the page.
+    const card = el.closest('.jobcard');
+    list = card
+      ? Array.from(card.querySelectorAll('.jc-lead, .jc-thumb:not(.more)')).filter(isVisible)
+      : triggers.filter(isVisible);
     idx = list.indexOf(el);
     if (idx < 0) { list = [el]; idx = 0; }
     lb.classList.add('open');

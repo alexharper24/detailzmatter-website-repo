@@ -55,7 +55,30 @@ the noindex line from every page (grep for `DRAFT MODE`) and flip `robots.txt` t
       confirmation click. Free tier is 50 submissions/month.
 - [ ] **Logan's story** — two `[REPLACE THIS: ...]` placeholders, on `index.html`
       (About teaser) and `about.html` (The Story). Get 2–3 short paragraphs from
-      Logan in his own words. Do not invent details.
+      Logan in his own words. Do not invent details. His portrait
+      (`img/logan-heun.jpg`) is in place on the About page.
+- [ ] **Job groupings are provisional** — see [`JOB-GROUPS.md`](JOB-GROUPS.md).
+      Grouped by Facebook upload batch, which is not the same as "one vehicle."
+      Vehicle makes/models are deliberately not claimed on the site except the
+      Lincoln Navigator, which Logan named himself. Alex is sending screenshots
+      grouped per job; fill in JOB-GROUPS.md, then rebuild the cards in
+      `gallery.html`.
+- [ ] **Reviews: confirm the presentation.** Four Facebook recommendations are on
+      the homepage as `Nicholas H.` / `Colton S.` / `Landon S.` / `Easton S.` with
+      month and year. Decisions Logan should sign off on:
+      - **Names are shortened to first name + last initial** (privacy default).
+        He may prefer full names as they appear publicly on Facebook.
+      - **Nicholas H.'s review is truncated on Facebook** ("... See more"), so only
+        the visible portion is quoted. Get the full text if he wants it complete.
+      - **Two light punctuation edits were made.** Nicholas's em dash became a
+        period (house style: no em dashes in copy), and Colton's "did and awesome
+        job" was corrected to "did an awesome job". Both are revertible.
+      - **No star ratings are shown**, because Facebook recommendations are not a
+        5-star scale. Nicholas typed five star characters into his text; that is
+        his formatting, not a platform rating.
+      - **No `Review`/`aggregateRating` JSON-LD was added.** Google discourages
+        marking up reviews copied from a third-party site, and it risks a
+        structured-data penalty. Genuine on-site reviews could be marked up later.
 - [ ] **Email address** — none published anywhere yet. Logan has not provided one.
       Add to contact page + footer + JSON-LD when he does.
 - [ ] **Hours** — contact page says "By appointment. Call or text to schedule."
@@ -70,17 +93,19 @@ the noindex line from every page (grep for `DRAFT MODE`) and flip `robots.txt` t
 - [ ] **Better photos** — Logan is sending formal photos later. Current gallery uses
       photos pulled from his Facebook page. Swap in higher quality originals when
       they arrive; filenames in `img/` are semantic so swaps are one-line changes.
-- [ ] **Before/after pairs — awaiting Logan's confirmation.** The gallery is now
-      grouped by job (`data-job`, from Facebook upload batches) and the lightbox
-      steps through each job's photos. A Before &amp; After section is built and
-      **commented out** at the top of `gallery.html`; the pair component
-      (`.ba-pair`) is in `style.css` and wired to the lightbox.
-      [`before-after-preview.html`](before-after-preview.html) (excluded from
-      checks/sitemap, noindex) shows the candidate pairings: three interior pairs
-      from one Facebook post, plus two correction sets where Logan needs to say
-      which shots are before vs after. Once confirmed: uncomment the section, fill
-      in real pairs, delete the preview page. Pairing is never done by visual
-      inspection alone.
+- [ ] **Before/after pairs — awaiting Logan's confirmation.** Our Work is built as
+      one `.jobcard` per vehicle per visit: a lead photo, a scrollable thumbnail
+      strip of the rest of that job, and a lightbox whose arrows stay inside that
+      one job. Filters hide whole cards.
+      The **flip card** (`.flip`, before on the front, after on the back, tap or
+      Enter to flip) is built and working, but is **not on the live gallery** because
+      no pair is confirmed. See it working plus the candidate pairings on
+      [`before-after-preview.html`](before-after-preview.html) (noindex, excluded
+      from checks and sitemap). Paste-ready flip-card markup sits in a comment at
+      the top of the job cards in `gallery.html`. Once Logan confirms: add the flip
+      cards, delete the preview page. Pairing is never done by visual inspection
+      alone. Open questions for Logan are listed in
+      [`JOB-GROUPS.md`](JOB-GROUPS.md).
 - [ ] **Domain cutover** — detailzmatter.co currently points at a GoDaddy site
       builder which includes a booking feature. Replacing it loses GoDaddy bookings;
       the new site uses a quote-request form + phone instead. Confirm Logan is fine
