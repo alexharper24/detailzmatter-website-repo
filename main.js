@@ -83,7 +83,7 @@
   const next = lb.querySelector('.lb-next');
   const cap = lb.querySelector('.lb-cap');
   const triggers = Array.from(document.querySelectorAll(
-    '.g-item, .jc-lead, .jc-thumb:not(.more), [data-zoom]'));
+    '.g-item, .jc-media > figure, [data-zoom]'));
   let list = [], idx = -1;
 
   const imgOf = el => (el.matches('img') ? el : el.querySelector('img'));
@@ -109,9 +109,11 @@
   const open = (el) => {
     // Inside a job card, the set is that job's photos, so the arrows walk one
     // vehicle's visit. Elsewhere it is every visible trigger on the page.
+    // Inside a card, include the tiles hidden past the 4th so "+N more" actually
+    // leads somewhere: the arrows walk that job's whole set.
     const card = el.closest('.jobcard');
     list = card
-      ? Array.from(card.querySelectorAll('.jc-lead, .jc-thumb:not(.more)')).filter(isVisible)
+      ? Array.from(card.querySelectorAll('.jc-media > figure'))
       : triggers.filter(isVisible);
     idx = list.indexOf(el);
     if (idx < 0) { list = [el]; idx = 0; }
