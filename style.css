@@ -326,8 +326,12 @@ section{padding:4.5rem 0}
 .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:start}
 .qform{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);
   padding:2rem}
+/* Name + Email on one row, Phone + Vehicle on the next, to cut the form's height.
+   Each field is its own cell so the label stays attached to its input. */
+.qform .fields{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 1rem}
+.qform .field label{display:block;font-weight:600;font-size:.92rem;margin:0 0 .35rem}
+@media (max-width:560px){.qform .fields{grid-template-columns:1fr}}
 .qform > label{display:block;font-weight:600;font-size:.92rem;margin:1.1rem 0 .35rem}
-.qform > label:first-of-type{margin-top:0}
 .qform input[type=text],.qform input[type=tel],.qform input[type=email],
 .qform select,.qform textarea{width:100%;font:inherit;color:var(--ink);
   border:1.5px solid #d8d2c4;border-radius:8px;padding:.7rem .85rem;background:#fdfcf9}
