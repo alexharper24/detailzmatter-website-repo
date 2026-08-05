@@ -83,7 +83,7 @@
   const next = lb.querySelector('.lb-next');
   const cap = lb.querySelector('.lb-cap');
   const triggers = Array.from(document.querySelectorAll(
-    '.g-item, .ba-pair figure, .jc-lead, .jc-thumb:not(.more), [data-zoom]'));
+    '.g-item, .jc-lead, .jc-thumb:not(.more), [data-zoom]'));
   let list = [], idx = -1;
 
   const imgOf = el => (el.matches('img') ? el : el.querySelector('img'));
@@ -96,7 +96,6 @@
     lbImg.alt = img.alt || '';
     if (cap) {
       const fc = el.querySelector('figcaption')
-        || el.closest('.ba-pair')?.querySelector('.cap')
         || el.closest('.jobcard')?.querySelector('.jc-head h3');
       const tag = el.querySelector('.tag');
       const label = [tag && tag.textContent, fc && fc.textContent.trim()].filter(Boolean).join(': ');

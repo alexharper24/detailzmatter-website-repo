@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -52,7 +52,7 @@
   <div class="wrap section-head">
     <p class="eyebrow">Our Work</p>
     <h2>The Results Speak for Themselves</h2>
-    <p class="lead">Every card below is one vehicle and one visit. Tap the main photo or any thumbnail to look closer, then use the arrows to step through the rest of that job.</p>
+    <p class="lead">Every card below is one vehicle and one visit. Where we have both, tap a before and after photo to flip it. Tap any other photo to look closer, then use the arrows to step through the rest of that job.</p>
   </div>
 </section>
 
@@ -64,25 +64,36 @@
   cards, and the lightbox scopes its arrow keys to the photos inside the card that
   was clicked.
 
-  GROUPING IS PROVISIONAL. Cards were grouped by Facebook upload batch, which is
-  reliable for "posted the same day" but not for "same vehicle" (the 925230/925231
-  batch alone holds at least three different vehicles). Vehicle makes and models are
-  deliberately NOT claimed except where Logan named them himself in his own post
-  text. Replace with Logan's real groupings when they arrive; see the README.
+  CONFIRMED BY ALEX (2026-08-05):
+    - The three interior before/after pairs on the Cloth Interior card.
+    - Correction groupings: "Scratch Correction" is one job (taped fender + work
+      light shot), "Paint Correction, Dark Red Metallic" is one job (three taped
+      panels + finished gloss), and the compound-hood shot is the Corvette's hood,
+      so it belongs with the Corvette.
 
-  BEFORE/AFTER FLIP CARD. To add one to a job, replace that card's <figure
-  class="jc-lead"> with this block and move the two photos out of the thumb strip.
-  Only do this for pairs Logan has confirmed are the same vehicle and same visit:
+  STILL PROVISIONAL: every other card. Those were grouped by Facebook upload batch,
+  which reliably means "posted the same day" but not "same vehicle" (the
+  925230/925231 batch alone holds at least three vehicles). Vehicle makes and models
+  are deliberately NOT claimed except where confirmed: the Lincoln Navigator (Logan
+  named it in his post) and the Corvette (Alex confirmed). See JOB-GROUPS.md.
 
-  <button class="flip" type="button" aria-label="Before and after, tap to flip">
-    <div class="flip-inner">
-      <figure class="flip-face front"><span class="tag">Before</span>
-        <img src="img/interior-before-1.jpg" alt="Soiled seat and carpet before cleaning" loading="lazy" width="700" height="525"></figure>
-      <figure class="flip-face back"><span class="tag after">After</span>
-        <img src="img/interior-cloth-1.jpg" alt="The same seat and carpet after cleaning" loading="lazy" width="700" height="525"></figure>
-    </div>
-    <span class="flip-hint"><span>Tap for after</span></span>
-  </button>
+  BEFORE/AFTER FLIP CARD. A card with several pairs uses .jobcard.feature (full row)
+  wrapping a .jc-flips grid of these blocks. A card with a single pair can drop one
+  in place of its <figure class="jc-lead">. Only for pairs confirmed to be the same
+  vehicle and same visit:
+
+  <div class="jc-flip">
+    <button class="flip" type="button" aria-label="Before and after. Activate to flip.">
+      <div class="flip-inner">
+        <figure class="flip-face front"><span class="tag">Before</span>
+          <img src="img/BEFORE.jpg" alt="..." loading="lazy" width="700" height="525"></figure>
+        <figure class="flip-face back"><span class="tag after">After</span>
+          <img src="img/AFTER.jpg" alt="The same ... after ..." loading="lazy" width="700" height="525"></figure>
+      </div>
+      <span class="flip-hint">(refresh svg)<span>Tap for after</span></span>
+    </button>
+    <p class="jc-flip-cap">What the pair shows</p>
+  </div>
 -->
 
 <section style="padding-top:2.6rem">
@@ -97,7 +108,7 @@
     <div class="jobs">
 
       <article class="jobcard reveal" data-cat="correction">
-        <div class="jc-head"><h3>Paint Correction, Dark Metallic</h3><span class="jc-tag">Correction</span></div>
+        <div class="jc-head"><h3>Paint Correction, Dark Red Metallic</h3><span class="jc-tag">Correction</span></div>
         <figure class="jc-lead"><img src="img/correction-gloss.jpg" alt="Deep mirror gloss on a dark red panel after paint correction" loading="lazy" width="1100" height="1467"></figure>
         <div class="jc-thumbs">
           <figure class="jc-thumb"><img src="img/correction-panel-1.jpg" alt="Panel taped off before machine polishing" loading="lazy" width="700" height="933"></figure>
@@ -123,14 +134,14 @@
       </article>
 
       <article class="jobcard reveal" data-cat="correction exterior">
-        <div class="jc-head"><h3>Correction &amp; Shop Detail</h3><span class="jc-tag">Correction</span></div>
-        <figure class="jc-lead"><img src="img/correction-compound-hood.jpg" alt="Polishing compound worked across a hood" loading="lazy" width="1100" height="1467"></figure>
+        <div class="jc-head"><h3>Corvette, Paint Correction</h3><span class="jc-tag">Correction</span></div>
+        <figure class="jc-lead"><img src="img/shop-corvette.jpg" alt="Corvette in the Detailz Matter shop for paint correction" loading="lazy" width="1100" height="824"></figure>
         <div class="jc-thumbs">
-          <figure class="jc-thumb"><img src="img/shop-corvette.jpg" alt="White sports car in the Detailz Matter shop" loading="lazy" width="1100" height="824"></figure>
+          <figure class="jc-thumb"><img src="img/correction-compound-hood.jpg" alt="Compound worked across the Corvette hood during correction" loading="lazy" width="1100" height="1467"></figure>
         </div>
         <p class="jc-foot">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          2 photos
+          2 photos, hood correction
         </p>
       </article>
 
@@ -153,18 +164,62 @@
         </p>
       </article>
 
-      <article class="jobcard reveal" data-cat="interior">
-        <div class="jc-head"><h3>Cloth Interior Deep Clean</h3><span class="jc-tag">Interior</span></div>
-        <figure class="jc-lead"><img src="img/interior-cloth-1.jpg" alt="Cloth seat and carpet after a deep clean" loading="lazy" width="700" height="525"></figure>
+      <article class="jobcard feature reveal" data-cat="interior">
+        <div class="jc-head"><h3>Cloth Interior Deep Clean</h3><span class="jc-tag">Before &amp; after</span></div>
+        <div class="jc-flips">
+          <div class="jc-flip">
+            <button class="flip" type="button" aria-label="Front seat and floor, before and after. Activate to flip.">
+              <div class="flip-inner">
+                <figure class="flip-face front"><span class="tag">Before</span>
+                  <img src="img/interior-before-1.jpg" alt="Soiled cloth seat and floor before cleaning" loading="lazy" width="700" height="525"></figure>
+                <figure class="flip-face back"><span class="tag after">After</span>
+                  <img src="img/interior-cloth-1.jpg" alt="The same cloth seat and floor after a deep clean" loading="lazy" width="700" height="525"></figure>
+              </div>
+              <span class="flip-hint">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+                <span>Tap for after</span>
+              </span>
+            </button>
+            <p class="jc-flip-cap">Front seat and floor</p>
+          </div>
+          <div class="jc-flip">
+            <button class="flip" type="button" aria-label="Driver side floor, before and after. Activate to flip.">
+              <div class="flip-inner">
+                <figure class="flip-face front"><span class="tag">Before</span>
+                  <img src="img/interior-before-2.jpg" alt="Muddy driver side floor before cleaning" loading="lazy" width="700" height="525"></figure>
+                <figure class="flip-face back"><span class="tag after">After</span>
+                  <img src="img/interior-cloth-3.jpg" alt="The same driver side floor after cleaning, with fresh mats" loading="lazy" width="700" height="525"></figure>
+              </div>
+              <span class="flip-hint">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+                <span>Tap for after</span>
+              </span>
+            </button>
+            <p class="jc-flip-cap">Driver side floor</p>
+          </div>
+          <div class="jc-flip">
+            <button class="flip" type="button" aria-label="Rear bench, before and after. Activate to flip.">
+              <div class="flip-inner">
+                <figure class="flip-face front"><span class="tag">Before</span>
+                  <img src="img/interior-before-3.jpg" alt="Rear bench with crumbs and staining before cleaning" loading="lazy" width="700" height="933"></figure>
+                <figure class="flip-face back"><span class="tag after">After</span>
+                  <img src="img/interior-cloth-2.jpg" alt="The same rear bench after a deep clean" loading="lazy" width="700" height="933"></figure>
+              </div>
+              <span class="flip-hint">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+                <span>Tap for after</span>
+              </span>
+            </button>
+            <p class="jc-flip-cap">Rear bench</p>
+          </div>
+        </div>
         <div class="jc-thumbs">
-          <figure class="jc-thumb"><img src="img/interior-cloth-3.jpg" alt="Front cabin with fresh mats after cleaning" loading="lazy" width="700" height="525"></figure>
-          <figure class="jc-thumb"><img src="img/interior-cloth-2.jpg" alt="Rear cloth bench cleaned and vacuumed" loading="lazy" width="700" height="933"></figure>
           <figure class="jc-thumb"><img src="img/headliner-1.jpg" alt="Clean headliner after interior detailing" loading="lazy" width="700" height="933"></figure>
           <figure class="jc-thumb"><img src="img/headliner-2.jpg" alt="Headliner and pillar trim cleaned" loading="lazy" width="700" height="933"></figure>
         </div>
         <p class="jc-foot">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          5 photos, seats to headliner
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+          Three before and after pairs, plus the headliner. Tap any photo to flip it.
         </p>
       </article>
 
@@ -346,6 +401,6 @@
   <p class="lb-cap" hidden></p>
 </div>
 
-<script src="main.js?v=3"></script>
+<script src="main.js?v=4"></script>
 </body>
 </html>

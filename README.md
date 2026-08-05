@@ -93,19 +93,20 @@ the noindex line from every page (grep for `DRAFT MODE`) and flip `robots.txt` t
 - [ ] **Better photos** — Logan is sending formal photos later. Current gallery uses
       photos pulled from his Facebook page. Swap in higher quality originals when
       they arrive; filenames in `img/` are semantic so swaps are one-line changes.
-- [ ] **Before/after pairs — awaiting Logan's confirmation.** Our Work is built as
-      one `.jobcard` per vehicle per visit: a lead photo, a scrollable thumbnail
-      strip of the rest of that job, and a lightbox whose arrows stay inside that
-      one job. Filters hide whole cards.
-      The **flip card** (`.flip`, before on the front, after on the back, tap or
-      Enter to flip) is built and working, but is **not on the live gallery** because
-      no pair is confirmed. See it working plus the candidate pairings on
-      [`before-after-preview.html`](before-after-preview.html) (noindex, excluded
-      from checks and sitemap). Paste-ready flip-card markup sits in a comment at
-      the top of the job cards in `gallery.html`. Once Logan confirms: add the flip
-      cards, delete the preview page. Pairing is never done by visual inspection
-      alone. Open questions for Logan are listed in
-      [`JOB-GROUPS.md`](JOB-GROUPS.md).
+- [x] **Before/after flip cards are live.** Our Work is one `.jobcard` per vehicle
+      per visit: a lead photo, a scrollable thumbnail strip of the rest of that job,
+      and a lightbox whose arrows stay inside that one job. Filters hide whole cards.
+      Three confirmed interior pairs render as **flip cards** (`.flip`, before on the
+      front, after on the back, tap or Enter to flip) inside a `.jobcard.feature`
+      that spans the full row. Flip cards are the chosen presentation; the
+      side-by-side variant was removed rather than left as dead code. Paste-ready
+      markup is in a comment above the job cards in `gallery.html`.
+- [ ] **Correction before/after still undesignated.** Grouping for the two
+      correction jobs is confirmed, but nobody has said which photo is the before and
+      which is the after, so those stay photo sets. The question is staged on
+      [`before-after-preview.html`](before-after-preview.html) (noindex, excluded from
+      checks and sitemap). Delete that page once answered. Pairing is never done by
+      visual inspection alone.
 - [ ] **Domain cutover** — detailzmatter.co currently points at a GoDaddy site
       builder which includes a booking feature. Replacing it loses GoDaddy bookings;
       the new site uses a quote-request form + phone instead. Confirm Logan is fine

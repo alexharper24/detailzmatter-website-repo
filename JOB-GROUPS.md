@@ -62,19 +62,28 @@ regrouping is only an HTML edit, no image work.
 Filenames carry the guessed model in them. **Renaming is cheap** if a name is wrong;
 say so and the file plus every reference gets renamed together.
 
-## Known problems to fix
+## Settled by Alex, 2026-08-05
 
-1. **The 925230/925231 batch is split three ways by guesswork** into "Crew Cab
+1. **The three interior before/after pairs are confirmed** and are live as flip
+   cards on the Cloth Interior Deep Clean card (a `.jobcard.feature`, full row).
+2. **Correction groupings corrected.** `correction-fender-tape` +
+   `correction-worklight` are **one job**. `correction-panel-1..3` +
+   `correction-gloss` are **one job**. `correction-compound-hood` is the
+   **Corvette's hood**, so it sits on the Corvette card with `shop-corvette`.
+3. **Flip cards are the chosen presentation** for before/after. The side-by-side
+   variant was dropped, and its CSS/JS/markup removed rather than left as dead code.
+
+## Still open
+
+1. **Before/after designation inside the two correction jobs.** Grouping is settled
+   but nobody has said which correction photo is the before and which is the after,
+   so those cards remain photo sets rather than flip cards. Question is staged on
+   `before-after-preview.html`.
+2. **The 925230/925231 batch is still split three ways by guesswork** into "Crew Cab
    Truck", "Compact SUV", and "White SUV" cards. Colors clearly differ, but the
    split needs confirming, and there may be more vehicles than three.
-2. **`correction-fender-tape` and `correction-panel-1..3` are from different posts**
-   but look like similar dark vehicles. Same truck or not?
-3. **`correction-compound-hood` and `shop-corvette` are in the same post** and are
-   currently one card. Is the compound hood the white sports car, or another vehicle?
-4. **`correction-worklight`** shows a work light against a panel. Is that a defect
-   inspection (a before) or a final check (an after)?
-5. **`interior-before-1..3` are not on the live site.** They only appear on
-   `before-after-preview.html` until pairing is confirmed.
+3. **All remaining vehicle descriptions are generic on purpose.** Confirmed names so
+   far: Lincoln Navigator (Logan's own post) and Corvette (Alex).
 
 ## Filled-in jobs
 

@@ -184,23 +184,18 @@ section{padding:4.5rem 0}
   color:var(--gold-deep);letter-spacing:.04em;text-transform:uppercase}
 .reviews-foot{margin-top:2rem;text-align:center}
 
-/* before/after pairs */
-.ba-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
-.ba-pair{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);
-  overflow:hidden}
-.ba-pair .frames{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.ba-pair figure{margin:0;position:relative;aspect-ratio:3/4;overflow:hidden;cursor:zoom-in}
-.ba-pair img{width:100%;height:100%;object-fit:cover}
-.ba-pair .tag{position:absolute;top:.6rem;left:.6rem;font-size:.72rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;border-radius:6px;
-  background:rgba(10,18,27,.78);color:#e7e3d6}
-.ba-pair .tag.after{background:var(--gold);color:var(--navy-deep)}
-.ba-pair .cap{padding:.9rem 1.1rem 1rem;font-size:.95rem;color:var(--ink-soft)}
-
 /* ---------- job cards (one card per vehicle/visit) ---------- */
 .jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.6rem}
 .jobcard{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);
   overflow:hidden;display:flex;flex-direction:column}
+/* a job with several before/after pairs earns the full row */
+.jobcard.feature{grid-column:1/-1}
+.jc-flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1rem;padding:.3rem .8rem .2rem}
+.jc-flip{display:flex;flex-direction:column}
+.jc-flip .flip-inner{aspect-ratio:1/1}
+.jc-flip-cap{margin:0;padding:.55rem .15rem 0;font-size:.88rem;color:var(--ink-soft);
+  font-weight:500}
 .jc-head{padding:1.15rem 1.3rem .9rem;display:flex;align-items:flex-start;
   justify-content:space-between;gap:.8rem}
 .jc-head h3{margin:0;font-size:1.1rem}
@@ -400,7 +395,7 @@ footer.site .fine{border-top:1px solid var(--navy-line);padding-top:1.4rem;font-
    while protecting the deliberately dark sections */
 @media (prefers-color-scheme:dark){
   body{background:var(--paper) !important;color:var(--ink) !important}
-  .svc,.val,.qform,.form-thanks,.step,.filters button,.ba-pair{background:var(--white) !important;
+  .svc,.val,.qform,.form-thanks,.step,.filters button,.jobcard{background:var(--white) !important;
     color:var(--ink) !important}
   .section-tint{background:var(--gold-mist) !important}
   .nav,.hero,.section-dark,.stats,footer.site,.side-card,.lightbox,
