@@ -87,6 +87,22 @@ say so and the file plus every reference gets renamed together.
 5. **Flip cards are the chosen presentation** for before/after. The side-by-side
    variant was dropped, and its CSS/JS/markup removed rather than left as dead code.
 
+## Also settled, second review pass
+
+6. **The headliner shots are a fourth before/after pair.** `headliner-before` carries
+   the staining, `headliner-after` is clean. Files renamed to match. The Cloth
+   Interior card is now the page's hero: four flips across one row.
+7. **Red metallic publishes only the first pair** (`correction-red-before-2` to
+   `correction-red-after-1`). `correction-red-before-1` is no longer shown anywhere;
+   `correction-red-after-2` survives as the gallery and services `og:image`.
+8. **Ceramic coating illustrates with a different vehicle** than paint correction, on
+   both Home and Services. Each page now uses five distinct vehicles across its
+   service sections.
+9. **Draft bio copy is live behind a `.draft-note` marker** on Home and About. It is
+   built only from sourced facts (locally owned, Ramsey IN, mobile and shop, DuraSlic
+   certification, corrective focus). Nothing about how Logan started or how long he
+   has been detailing was invented; that is called out in the marker.
+
 ## Still open
 
 1. **The 925230/925231 batch is still split three ways by guesswork** into "Crew Cab
