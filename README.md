@@ -27,6 +27,13 @@ Or `preview_start({name: "detailzmatter"})` from the root `launch.json`.
 python ../site-checks/check_site.py .
 ```
 
+## Hosting
+
+Published to GitHub Pages from `main` / root at
+`https://alexharper24.github.io/detailzmatter-website-repo/` (public URL for Logan's
+review; draft mode keeps it out of search). Note: `404.html` uses root-relative
+links by design, so it only fully works once the custom domain is attached.
+
 ## Draft mode — currently ON
 
 Every page carries `<meta name="robots" content="noindex,nofollow">` and
@@ -63,10 +70,17 @@ the noindex line from every page (grep for `DRAFT MODE`) and flip `robots.txt` t
 - [ ] **Better photos** — Logan is sending formal photos later. Current gallery uses
       photos pulled from his Facebook page. Swap in higher quality originals when
       they arrive; filenames in `img/` are semantic so swaps are one-line changes.
-- [ ] **Before/after pairs** — `source-photos/work/` holds several "dirty interior"
-      shots (526580188, 526771238, 527380167) that were deliberately NOT placed;
-      pairing before/after photos by visual inspection is not done here. If Logan
-      confirms which befores match which afters, add a before/after section.
+- [ ] **Before/after pairs — awaiting Logan's confirmation.** The gallery is now
+      grouped by job (`data-job`, from Facebook upload batches) and the lightbox
+      steps through each job's photos. A Before &amp; After section is built and
+      **commented out** at the top of `gallery.html`; the pair component
+      (`.ba-pair`) is in `style.css` and wired to the lightbox.
+      [`before-after-preview.html`](before-after-preview.html) (excluded from
+      checks/sitemap, noindex) shows the candidate pairings: three interior pairs
+      from one Facebook post, plus two correction sets where Logan needs to say
+      which shots are before vs after. Once confirmed: uncomment the section, fill
+      in real pairs, delete the preview page. Pairing is never done by visual
+      inspection alone.
 - [ ] **Domain cutover** — detailzmatter.co currently points at a GoDaddy site
       builder which includes a booking feature. Replacing it loses GoDaddy bookings;
       the new site uses a quote-request form + phone instead. Confirm Logan is fine

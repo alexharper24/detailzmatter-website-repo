@@ -57,38 +57,74 @@
   }));
 })();
 
-/* Lightbox — shared across gallery + zoomable page images */
+/* Lightbox — shared across gallery, before/after pairs, and zoomable page images.
+   Steps through the currently visible set (respects active gallery filter). */
 (function () {
   const lb = document.getElementById('lightbox');
   if (!lb) return;
   const lbImg = lb.querySelector('img');
   const close = lb.querySelector('.lb-close');
-  const open = (src, alt) => {
-    lbImg.src = src;
-    lbImg.alt = alt || '';
+  const prev = lb.querySelector('.lb-prev');
+  const next = lb.querySelector('.lb-next');
+  const cap = lb.querySelector('.lb-cap');
+  const triggers = Array.from(document.querySelectorAll('.g-item, .ba-pair figure, [data-zoom]'));
+  let list = [], idx = -1;
+
+  const imgOf = el => (el.matches('img') ? el : el.querySelector('img'));
+  const isVisible = el => el.offsetParent !== null;
+
+  const render = () => {
+    const el = list[idx];
+    const img = imgOf(el);
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt || '';
+    if (cap) {
+      const fc = el.querySelector('figcaption') || el.closest('.ba-pair')?.querySelector('.cap');
+      const tag = el.querySelector('.tag');
+      const label = [tag && tag.textContent, fc && fc.textContent.trim()].filter(Boolean).join(': ');
+      cap.textContent = list.length > 1 ? `${label ? label + ' · ' : ''}${idx + 1} of ${list.length}` : label;
+      cap.hidden = !cap.textContent;
+    }
+    const many = list.length > 1;
+    if (prev) prev.hidden = !many;
+    if (next) next.hidden = !many;
+  };
+  const open = (el) => {
+    list = triggers.filter(isVisible);
+    idx = list.indexOf(el);
+    if (idx < 0) { list = [el]; idx = 0; }
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
+    render();
   };
   const shut = () => {
     lb.classList.remove('open');
     lbImg.removeAttribute('src');
     document.body.style.overflow = '';
   };
-  document.querySelectorAll('.g-item, [data-zoom]').forEach(el => {
-    const img = el.matches('img') ? el : el.querySelector('img');
+  const step = (d) => { idx = (idx + d + list.length) % list.length; render(); };
+
+  triggers.forEach(el => {
+    const img = imgOf(el);
     if (!img) return;
     el.setAttribute('role', 'button');
     el.setAttribute('tabindex', '0');
     el.style.cursor = 'zoom-in';
-    const go = () => open(img.currentSrc || img.src, img.alt);
-    el.addEventListener('click', go);
+    el.addEventListener('click', () => open(el));
     el.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); }
     });
   });
   close.addEventListener('click', shut);
+  if (prev) prev.addEventListener('click', () => step(-1));
+  if (next) next.addEventListener('click', () => step(1));
   lb.addEventListener('click', e => { if (e.target === lb) shut(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') shut(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') shut();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+  });
 })();
 
 /* Quote form — AJAX submit, on-page thank-you, un-configured guard */

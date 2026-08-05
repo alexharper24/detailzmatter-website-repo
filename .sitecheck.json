@@ -1,3 +1,4 @@
 {
-  "expect_domain": "detailzmatter.co"
+  "expect_domain": "detailzmatter.co",
+  "ignore_files": ["before-after-preview.html"]
 }

@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -56,6 +56,27 @@
   </div>
 </section>
 
+<!-- BEFORE & AFTER — uncomment once Logan confirms the pairings (README: pending list).
+     Pair markup pattern:
+<section class="section-tint" id="before-after" style="padding-top:2.6rem">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Before &amp; After</p>
+      <h2>Same Vehicle. Same Day.</h2>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-pair">
+        <div class="frames">
+          <figure><span class="tag">Before</span><img src="img/interior-before-1.jpg" alt="Soiled cloth seat and carpet before deep cleaning" loading="lazy" width="700" height="933"></figure>
+          <figure><span class="tag after">After</span><img src="img/interior-cloth-1.jpg" alt="The same seat and carpet after deep cleaning" loading="lazy" width="700" height="525"></figure>
+        </div>
+        <p class="cap">Cloth interior deep clean</p>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
 <section style="padding-top:2.6rem">
   <div class="wrap">
     <div class="filters" role="group" aria-label="Filter gallery">
@@ -65,34 +86,41 @@
       <button data-filter="exterior">Exteriors</button>
     </div>
 
+    <!-- Items are ordered by job (data-job groups photos from the same vehicle,
+         taken from the same Facebook post) so the lightbox steps through a job's
+         photos consecutively. Keep same-job items adjacent when editing. -->
     <div class="gallery">
-      <figure class="g-item" data-cat="correction"><img src="img/correction-compound-hood.jpg" alt="Polishing compound worked across a hood during paint correction" loading="lazy" width="1100" height="1467"><figcaption>Paint correction in progress</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/navigator-seats.jpg" alt="Cream leather seats after a deep interior detail on a Lincoln Navigator" loading="lazy" width="700" height="933"><figcaption>Lincoln Navigator interior detail</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/mustang-yellow-front.jpg" alt="Yellow Ford Mustang GT after a full exterior detail" loading="lazy" width="960" height="720"><figcaption>Full exterior detail</figcaption></figure>
-      <figure class="g-item" data-cat="correction"><img src="img/correction-panel-1.jpg" alt="Dark panel taped off during machine polishing" loading="lazy" width="700" height="933"><figcaption>Panel taped for machine polishing</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/tundra-interior-front.jpg" alt="Clean truck cab with leather seats and red floor liners" loading="lazy" width="700" height="933"><figcaption>Truck interior detail</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/audi-q8-profile.jpg" alt="Dark Audi SUV with a glossy finish after detailing" loading="lazy" width="1100" height="825"><figcaption>SUV exterior detail</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/navigator-dash.jpg" alt="Spotless dashboard and steering wheel after interior detailing" loading="lazy" width="700" height="525"><figcaption>Dash and trim detail</figcaption></figure>
-      <figure class="g-item" data-cat="correction"><img src="img/correction-gloss.jpg" alt="Deep mirror gloss on a dark red panel after correction" loading="lazy" width="1100" height="1467"><figcaption>Gloss restored after correction</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/bmw-front.jpg" alt="Red BMW coupe with gleaming paint in the shop" loading="lazy" width="1100" height="825"><figcaption>Show-ready shine</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/bronco-interior.jpg" alt="Clean SUV front seats and console after interior detail" loading="lazy" width="700" height="933"><figcaption>SUV interior detail</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/mustang-red-profile.jpg" alt="Red Mustang with a mirror finish parked in evening light" loading="lazy" width="1100" height="825"><figcaption>Full exterior detail</figcaption></figure>
-      <figure class="g-item" data-cat="correction"><img src="img/correction-fender-tape.jpg" alt="Fender taped off during scratch removal" loading="lazy" width="700" height="933"><figcaption>Scratch removal in progress</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/interior-cloth-1.jpg" alt="Cloth seat and carpet deep cleaned" loading="lazy" width="700" height="525"><figcaption>Cloth seat deep clean</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/volvo-xc90-profile.jpg" alt="Black Volvo XC90 shining after an exterior detail" loading="lazy" width="1100" height="825"><figcaption>SUV wash and wax</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/tundra-rear-seats.jpg" alt="Truck rear bench spotless after interior detailing" loading="lazy" width="700" height="933"><figcaption>Rear seat deep clean</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/range-rover-front.jpg" alt="White Range Rover Sport detailed and gleaming" loading="lazy" width="700" height="525"><figcaption>Full exterior detail</figcaption></figure>
-      <figure class="g-item" data-cat="correction"><img src="img/correction-panel-2.jpg" alt="Restored gloss on a taped panel mid correction" loading="lazy" width="700" height="933"><figcaption>Mid-correction gloss check</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/headliner-1.jpg" alt="Clean headliner after interior detailing" loading="lazy" width="700" height="933"><figcaption>Headliner cleaning</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/tundra-profile.jpg" alt="Gray Toyota Tundra clean and detailed on gravel" loading="lazy" width="700" height="933"><figcaption>Truck wash and detail</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/navigator-rear-seats.jpg" alt="Third row seats and carpet spotless after detail" loading="lazy" width="700" height="933"><figcaption>Full cabin detail</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/wheel-detail.jpg" alt="Black wheel and brake caliper cleaned in fine detail" loading="lazy" width="700" height="933"><figcaption>Wheel and caliper detail</figcaption></figure>
-      <figure class="g-item" data-cat="correction"><img src="img/correction-panel-3.jpg" alt="Polished panel reflecting the shop lights after correction" loading="lazy" width="700" height="933"><figcaption>Finished correction panel</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/bronco-seats-1.jpg" alt="Rear seats of an SUV deep cleaned" loading="lazy" width="700" height="933"><figcaption>Rear cabin detail</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/bmw-x6-side.jpg" alt="Red BMW X6 polished in the shop" loading="lazy" width="700" height="525"><figcaption>Exterior polish and shine</figcaption></figure>
-      <figure class="g-item" data-cat="interior"><img src="img/mustang-interior.jpg" alt="Mustang cockpit cleaned and conditioned" loading="lazy" width="700" height="933"><figcaption>Sports car interior</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/kia-sportage.jpg" alt="Black Kia Sportage washed and shining" loading="lazy" width="700" height="525"><figcaption>Wash and detail</figcaption></figure>
-      <figure class="g-item" data-cat="exterior"><img src="img/navigator-side.jpg" alt="Black Lincoln Navigator with glossy paint and dressed tires" loading="lazy" width="1100" height="825"><figcaption>Lincoln Navigator full detail</figcaption></figure>
+      <figure class="g-item" data-cat="correction" data-job="truck-correction"><img src="img/correction-fender-tape.jpg" alt="Fender taped off during scratch removal" loading="lazy" width="700" height="933"><figcaption>Scratch removal, panel taped</figcaption></figure>
+      <figure class="g-item" data-cat="correction" data-job="truck-correction"><img src="img/correction-panel-1.jpg" alt="Dark panel taped off during machine polishing" loading="lazy" width="700" height="933"><figcaption>Machine polishing in stages</figcaption></figure>
+      <figure class="g-item" data-cat="correction" data-job="truck-correction"><img src="img/correction-panel-2.jpg" alt="Restored gloss on a taped panel mid correction" loading="lazy" width="700" height="933"><figcaption>Mid-correction gloss check</figcaption></figure>
+      <figure class="g-item" data-cat="correction" data-job="truck-correction"><img src="img/correction-panel-3.jpg" alt="Polished panel reflecting the shop lights after correction" loading="lazy" width="700" height="933"><figcaption>Finished correction panel</figcaption></figure>
+      <figure class="g-item" data-cat="correction" data-job="truck-correction"><img src="img/correction-gloss.jpg" alt="Deep mirror gloss on a dark red panel after correction" loading="lazy" width="1100" height="1467"><figcaption>Gloss restored after correction</figcaption></figure>
+      <figure class="g-item" data-cat="correction" data-job="compound-hood"><img src="img/correction-compound-hood.jpg" alt="Polishing compound worked across a hood during paint correction" loading="lazy" width="1100" height="1467"><figcaption>Paint correction in progress</figcaption></figure>
+      <figure class="g-item" data-cat="correction" data-job="worklight-inspection"><img src="img/correction-worklight.jpg" alt="Work light held against a dark panel to inspect the finish" loading="lazy" width="700" height="1244"><figcaption>Finish inspection under work light</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="navigator"><img src="img/navigator-seats.jpg" alt="Cream leather seats after a deep interior detail on a Lincoln Navigator" loading="lazy" width="700" height="933"><figcaption>Lincoln Navigator interior detail</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="navigator"><img src="img/navigator-dash.jpg" alt="Spotless dashboard and steering wheel after interior detailing" loading="lazy" width="700" height="525"><figcaption>Lincoln Navigator dash and trim</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="navigator"><img src="img/navigator-rear-seats.jpg" alt="Third row seats and carpet spotless after detail" loading="lazy" width="700" height="933"><figcaption>Lincoln Navigator full cabin</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="navigator"><img src="img/navigator-side.jpg" alt="Black Lincoln Navigator with glossy paint and dressed tires" loading="lazy" width="1100" height="825"><figcaption>Lincoln Navigator full detail</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="ford-interior"><img src="img/interior-cloth-1.jpg" alt="Cloth seat and carpet deep cleaned" loading="lazy" width="700" height="525"><figcaption>Cloth seat deep clean</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="ford-interior"><img src="img/interior-cloth-2.jpg" alt="Rear cloth bench and liners deep cleaned" loading="lazy" width="700" height="933"><figcaption>Rear bench deep clean</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="ford-interior"><img src="img/interior-cloth-3.jpg" alt="Front interior with fresh mats after deep cleaning" loading="lazy" width="700" height="525"><figcaption>Front cabin refreshed</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="ford-interior"><img src="img/headliner-1.jpg" alt="Clean headliner after interior detailing" loading="lazy" width="700" height="933"><figcaption>Headliner cleaning</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="tundra"><img src="img/tundra-interior-front.jpg" alt="Clean truck cab with leather seats and red floor liners" loading="lazy" width="700" height="933"><figcaption>Toyota Tundra interior detail</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="tundra"><img src="img/tundra-rear-seats.jpg" alt="Truck rear bench spotless after interior detailing" loading="lazy" width="700" height="933"><figcaption>Toyota Tundra rear seats</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="tundra"><img src="img/tundra-profile.jpg" alt="Gray Toyota Tundra clean and detailed on gravel" loading="lazy" width="700" height="933"><figcaption>Toyota Tundra wash and detail</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="bronco"><img src="img/bronco-interior.jpg" alt="Clean SUV front seats and console after interior detail" loading="lazy" width="700" height="933"><figcaption>Bronco Sport interior detail</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="bronco"><img src="img/bronco-seats-1.jpg" alt="Rear seats of an SUV deep cleaned" loading="lazy" width="700" height="933"><figcaption>Bronco Sport rear cabin</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="bronco"><img src="img/bronco-rear.jpg" alt="Blue Bronco Sport washed and detailed outside the shop" loading="lazy" width="700" height="933"><figcaption>Bronco Sport full detail</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="mustang-yellow"><img src="img/mustang-yellow-front.jpg" alt="Yellow Ford Mustang GT after a full exterior detail" loading="lazy" width="960" height="720"><figcaption>Mustang GT full exterior detail</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="mustang-red"><img src="img/mustang-red-profile.jpg" alt="Red Mustang with a mirror finish parked in evening light" loading="lazy" width="1100" height="825"><figcaption>Mustang exterior detail</figcaption></figure>
+      <figure class="g-item" data-cat="interior" data-job="mustang-red"><img src="img/mustang-interior.jpg" alt="Mustang cockpit cleaned and conditioned" loading="lazy" width="700" height="933"><figcaption>Mustang interior</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="audi-q8"><img src="img/audi-q8-profile.jpg" alt="Dark Audi SUV with a glossy finish after detailing" loading="lazy" width="1100" height="825"><figcaption>Audi Q8 exterior detail</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="audi-q8"><img src="img/wheel-detail.jpg" alt="Black wheel and brake caliper cleaned in fine detail" loading="lazy" width="700" height="933"><figcaption>Wheel and caliper detail</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="volvo"><img src="img/volvo-xc90-profile.jpg" alt="Black Volvo XC90 shining after an exterior detail" loading="lazy" width="1100" height="825"><figcaption>Volvo XC90 wash and wax</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="bmw"><img src="img/bmw-front.jpg" alt="Red BMW coupe with gleaming paint in the shop" loading="lazy" width="1100" height="825"><figcaption>BMW show-ready shine</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="bmw"><img src="img/bmw-x6-side.jpg" alt="Red BMW X6 polished in the shop" loading="lazy" width="700" height="525"><figcaption>BMW X6 polish and shine</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="range-rover"><img src="img/range-rover-front.jpg" alt="White Range Rover Sport detailed and gleaming" loading="lazy" width="700" height="525"><figcaption>Range Rover Sport full detail</figcaption></figure>
+      <figure class="g-item" data-cat="exterior" data-job="kia"><img src="img/kia-sportage.jpg" alt="Black Kia Sportage washed and shining" loading="lazy" width="700" height="525"><figcaption>Wash and detail</figcaption></figure>
     </div>
   </div>
 </section>
@@ -148,9 +176,12 @@
 
 <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
   <button class="lb-close" aria-label="Close image">&times;</button>
+  <button class="lb-prev" aria-label="Previous image" hidden>&#8249;</button>
+  <button class="lb-next" aria-label="Next image" hidden>&#8250;</button>
   <img alt="">
+  <p class="lb-cap" hidden></p>
 </div>
 
-<script src="main.js?v=1"></script>
+<script src="main.js?v=2"></script>
 </body>
 </html>
