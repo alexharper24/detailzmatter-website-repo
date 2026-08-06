@@ -140,9 +140,13 @@ section{padding:4.5rem 0}
   object-fit:cover;object-position:50% 18%}
 @media (max-width:960px){
   /* height:auto must come back, or it beats aspect-ratio and the figure collapses
-     to the height of its (absolutely positioned, possibly unloaded) image. */
+     to the height of its (absolutely positioned, possibly unloaded) image.
+     The image also returns to static flow here. Left absolute, the lazy-loaded
+     portrait never began loading on mobile at all (complete:false, currentSrc
+     empty) and Logan's photo simply did not appear. The figure has a definite
+     height from aspect-ratio, so static + object-fit fills it correctly. */
   .split.bio figure{height:auto;min-height:0;aspect-ratio:4/5}
-  .split.bio figure img{position:absolute}
+  .split.bio figure img{position:static;width:100%;height:100%;object-fit:cover}
 }
 /* Portrait variant, for the Home About teaser. The bio variant stretches the photo to
    match the text, which is right on the About page but letterboxes a portrait when the
@@ -431,6 +435,10 @@ footer.site .fine{border-top:1px solid var(--navy-line);padding-top:1.4rem;font-
 @media (max-width:960px){
   .split,.svc-detail,.contact-grid{grid-template-columns:1fr}
   .split figure{order:-1}
+  /* Services stack as the service text first, then its photo. The desktop zig-zag
+     alternates DOM order, so pin it explicitly rather than inherit that. */
+  .svc-detail > div{order:1}
+  .svc-detail > figure{order:2}
   footer.site .cols{grid-template-columns:1fr 1fr}
 }
 
@@ -458,11 +466,16 @@ footer.site .fine{border-top:1px solid var(--navy-line);padding-top:1.4rem;font-
   .stats .wrap{grid-template-columns:1fr;gap:1.2rem}
   .qform .opts{grid-template-columns:1fr}
   footer.site .cols{grid-template-columns:1fr}
-  .mcall{display:flex;align-items:center;justify-content:center;gap:.55rem;
+  /* Quieter than a full-width gold slab: dark bar with a gold label and a hairline
+     top edge. min-height keeps it an honest 44px tap target while sitting lower, and
+     the safe-area inset stops the iPhone home indicator crowding it. */
+  .mcall{display:flex;align-items:center;justify-content:center;gap:.5rem;
     position:fixed;left:0;right:0;bottom:0;z-index:95;
-    background:var(--gold);color:var(--navy-deep);font-weight:700;text-decoration:none;
-    padding:.95rem 1rem;box-shadow:0 -8px 24px rgba(0,0,0,.28)}
-  footer.site{padding-bottom:5.5rem}
+    background:rgba(10,18,27,.94);color:var(--gold);font-weight:600;font-size:.94rem;
+    text-decoration:none;min-height:44px;padding:.4rem 1rem;
+    padding-bottom:calc(.4rem + env(safe-area-inset-bottom, 0px));
+    border-top:1px solid rgba(201,162,94,.4);box-shadow:0 -4px 14px rgba(0,0,0,.2)}
+  footer.site{padding-bottom:4rem}
 }
 
 /* touch: defeat double-tap on hover transforms */
