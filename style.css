@@ -1,7 +1,7 @@
 /* Detailz Matter, LLC — design tokens */
 :root{
   --navy:#101b26; --navy-deep:#0a121b; --navy-soft:#1b2a3a; --navy-line:#26374a;
-  --gold:#c9a25e; --gold-bright:#dcb878; --gold-deep:#8a6a33; --gold-mist:#f4ecdc;
+  --gold:#c9a25e; --gold-text:#7f663b; --gold-bright:#dcb878; --gold-deep:#8a6a33; --gold-mist:#f4ecdc;
   --paper:#f7f5f0; --white:#fff;
   --ink:#1c2733; --ink-soft:#4c5b6a;
   --maxw:1180px; --radius:14px;
@@ -27,7 +27,7 @@ h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700}
 h3{font-size:1.25rem;font-weight:700;letter-spacing:.04em}
 .eyebrow{font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.22em;
   text-transform:uppercase;color:var(--gold-deep);margin:0 0 .8rem}
-.section-dark .eyebrow{color:var(--gold)}
+.section-dark .eyebrow{color:var(--gold-text)}
 p{margin:.4rem 0 1rem}
 .lead{font-size:1.12rem;color:var(--ink-soft)}
 
@@ -510,3 +510,23 @@ footer.site .fine{border-top:1px solid var(--navy-line);padding-top:1.4rem;font-
   .nav,.mcall,footer.site,.cta-ribbon,.lightbox{display:none}
   body{background:#fff}
 }
+
+
+/* --------------------------------------------------------------------------
+   Footer link tap targets (added 2026-08-06 after a rendered audit).
+   Footer links measured 17-36px tall against the 44px minimum that both Apple
+   and Google publish, so a fingertip overlapped the neighbouring link. Padding
+   only: the text size is unchanged, and this is scoped to phones so desktop
+   footer density stays exactly as it was.
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  footer .cols a { padding-top: 11px; padding-bottom: 11px; }
+}
+
+/* --------------------------------------------------------------------------
+   .eyebrow appears on BOTH light sections and the navy hero. --gold-text is the
+   darkened ink that clears the light grounds; on navy the original brand gold is
+   already 7.3:1, and darkening it there made things worse (3.76 -> 3.12), so the
+   hero is explicitly restored.
+   -------------------------------------------------------------------------- */
+.hero .eyebrow, .section-dark .eyebrow { color: var(--gold); }
