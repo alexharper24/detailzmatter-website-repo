@@ -223,6 +223,21 @@ section{padding:4.5rem 0}
 .reviews-foot{margin-top:2rem;text-align:center}
 
 /* ---------- job cards (one card per vehicle/visit) ---------- */
+/* Before & after showcase: two pairs per row, big enough to actually read the
+   difference. Square frames because the pairs are a mix of portrait and landscape
+   and a shared aspect keeps the rows aligned. */
+.ba-showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+@media (max-width:860px){.ba-showcase{grid-template-columns:1fr}}
+.ba-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);
+  overflow:hidden;display:flex;flex-direction:column}
+.ba-card .flip{padding:4px 4px 0}
+.ba-card .flip-inner{aspect-ratio:1/1}
+.ba-card .flip-face{inset:4px 4px 0}
+.ba-card .cap{margin:0;padding:.95rem 1.2rem 1.15rem}
+.ba-card .cap b{display:block;font-family:var(--display);font-size:1.08rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--ink);line-height:1.15}
+.ba-card .cap span{font-size:.94rem;color:var(--ink-soft)}
+
 /* Fixed column counts, not auto-fit, so every row holds the same number of cards
    at a given width. Feature cards take the whole row on purpose. */
 .jobs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}

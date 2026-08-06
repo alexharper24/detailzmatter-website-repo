@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 
@@ -118,103 +118,99 @@
       <button data-filter="exterior">Exteriors</button>
     </div>
 
-    <div class="jobs">
+    <div class="section-head" data-section="ba" style="margin-top:2.4rem">
+      <p class="eyebrow">Before &amp; After</p>
+      <h2>See the Difference</h2>
+      <p class="lead">Two per row so the detail is actually visible. Tap any photo to flip between the before and the after.</p>
+    </div>
+    <div class="ba-showcase" data-section="ba">
 
-      <article class="jobcard feature reveal" data-cat="interior">
-        <div class="jc-head"><h3>Cloth Interior Deep Clean</h3><span class="jc-tag">Before &amp; after</span></div>
-        <div class="jc-flips">
-          <div class="jc-flip">
-            <button class="flip" type="button" aria-label="Front seat and floor, before and after. Activate to flip.">
-              <div class="flip-inner">
-                <figure class="flip-face front"><span class="tag">Before</span>
-                  <img src="img/interior-before-1.jpg" alt="Soiled cloth seat and floor before cleaning" loading="lazy"></figure>
-                <figure class="flip-face back"><span class="tag after">After</span>
-                  <img src="img/interior-cloth-1.jpg" alt="The same cloth seat and floor after a deep clean" loading="lazy"></figure>
-              </div>
-              <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
-            </button>
-            <p class="jc-flip-cap">Front seat and floor</p>
+      <article class="ba-card reveal" data-cat="interior">
+        <button class="flip" type="button" aria-label="Cloth Interior Deep Clean, Front seat and floor. Before and after, activate to flip.">
+          <div class="flip-inner">
+            <figure class="flip-face front"><span class="tag">Before</span>
+              <img src="img/interior-before-1.jpg" alt="Soiled cloth seat and floor before cleaning" loading="lazy"></figure>
+            <figure class="flip-face back"><span class="tag after">After</span>
+              <img src="img/interior-cloth-1.jpg" alt="The same cloth seat and floor after a deep clean" loading="lazy"></figure>
           </div>
-          <div class="jc-flip">
-            <button class="flip" type="button" aria-label="Driver side floor, before and after. Activate to flip.">
-              <div class="flip-inner">
-                <figure class="flip-face front"><span class="tag">Before</span>
-                  <img src="img/interior-before-2.jpg" alt="Muddy driver side floor before cleaning" loading="lazy"></figure>
-                <figure class="flip-face back"><span class="tag after">After</span>
-                  <img src="img/interior-cloth-3.jpg" alt="The same driver side floor after cleaning, with fresh mats" loading="lazy"></figure>
-              </div>
-              <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
-            </button>
-            <p class="jc-flip-cap">Driver side floor</p>
-          </div>
-          <div class="jc-flip">
-            <button class="flip" type="button" aria-label="Rear bench, before and after. Activate to flip.">
-              <div class="flip-inner">
-                <figure class="flip-face front"><span class="tag">Before</span>
-                  <img src="img/interior-before-3.jpg" alt="Rear bench with crumbs and staining before cleaning" loading="lazy"></figure>
-                <figure class="flip-face back"><span class="tag after">After</span>
-                  <img src="img/interior-cloth-2.jpg" alt="The same rear bench after a deep clean" loading="lazy"></figure>
-              </div>
-              <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
-            </button>
-            <p class="jc-flip-cap">Rear bench</p>
-          </div>
-          <div class="jc-flip">
-            <button class="flip" type="button" aria-label="Headliner, before and after. Activate to flip.">
-              <div class="flip-inner">
-                <figure class="flip-face front"><span class="tag">Before</span>
-                  <img src="img/headliner-before.jpg" alt="Stained headliner before cleaning" loading="lazy"></figure>
-                <figure class="flip-face back"><span class="tag after">After</span>
-                  <img src="img/headliner-after.jpg" alt="Clean headliner after cleaning" loading="lazy"></figure>
-              </div>
-              <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
-            </button>
-            <p class="jc-flip-cap">Headliner</p>
-          </div>
-        </div>
-        <p class="jc-foot">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-          Four before and after pairs. Tap any photo to flip it.
-        </p>
+          <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
+        </button>
+        <p class="cap"><b>Cloth Interior Deep Clean</b><span>Front seat and floor</span></p>
       </article>
 
-      <article class="jobcard reveal" data-cat="correction">
-        <div class="jc-head"><h3>Red Metallic, Paint Correction</h3><span class="jc-tag">Before &amp; after</span></div>
-        <div class="jc-media">
-            <button class="flip t-full" type="button" aria-label="Scratched paint before correction and corrected after. Activate to flip.">
-              <div class="flip-inner">
-                <figure class="flip-face front"><span class="tag">Before</span>
-                  <img src="img/correction-red-before-2.jpg" alt="Swirl marks and scratches in dark red paint before correction" loading="lazy"></figure>
-                <figure class="flip-face back"><span class="tag after">After</span>
-                  <img src="img/correction-red-after-1.jpg" alt="The same dark red paint polished clear after correction" loading="lazy"></figure>
-              </div>
-              <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
-            </button>
-        </div>
-        <p class="jc-foot">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-          Scratches out, gloss back. Tap to flip.
-        </p>
+      <article class="ba-card reveal" data-cat="interior">
+        <button class="flip" type="button" aria-label="Cloth Interior Deep Clean, Driver side floor. Before and after, activate to flip.">
+          <div class="flip-inner">
+            <figure class="flip-face front"><span class="tag">Before</span>
+              <img src="img/interior-before-2.jpg" alt="Muddy driver side floor before cleaning" loading="lazy"></figure>
+            <figure class="flip-face back"><span class="tag after">After</span>
+              <img src="img/interior-cloth-3.jpg" alt="The same driver side floor after cleaning, with fresh mats" loading="lazy"></figure>
+          </div>
+          <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
+        </button>
+        <p class="cap"><b>Cloth Interior Deep Clean</b><span>Driver side floor</span></p>
       </article>
 
-      <article class="jobcard reveal" data-cat="correction">
-        <div class="jc-head"><h3>Truck Scratch Correction</h3><span class="jc-tag">Before &amp; after</span></div>
-        <div class="jc-media">
-            <button class="flip t-full" type="button" aria-label="Truck paint before correction and after correction. Activate to flip.">
-              <div class="flip-inner">
-                <figure class="flip-face front"><span class="tag">Before</span>
-                  <img src="img/correction-truck-before.jpg" alt="Scratched truck panel taped off before correction" loading="lazy"></figure>
-                <figure class="flip-face back"><span class="tag after">After</span>
-                  <img src="img/correction-truck-after.jpg" alt="Corrected truck paint checked under a work light" loading="lazy"></figure>
-              </div>
-              <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
-            </button>
-        </div>
-        <p class="jc-foot">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-          Tap to flip. The two shots are different areas of the truck.
-        </p>
+      <article class="ba-card reveal" data-cat="interior">
+        <button class="flip" type="button" aria-label="Cloth Interior Deep Clean, Rear bench. Before and after, activate to flip.">
+          <div class="flip-inner">
+            <figure class="flip-face front"><span class="tag">Before</span>
+              <img src="img/interior-before-3.jpg" alt="Rear bench with crumbs and staining before cleaning" loading="lazy"></figure>
+            <figure class="flip-face back"><span class="tag after">After</span>
+              <img src="img/interior-cloth-2.jpg" alt="The same rear bench after a deep clean" loading="lazy"></figure>
+          </div>
+          <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
+        </button>
+        <p class="cap"><b>Cloth Interior Deep Clean</b><span>Rear bench</span></p>
       </article>
+
+      <article class="ba-card reveal" data-cat="interior">
+        <button class="flip" type="button" aria-label="Cloth Interior Deep Clean, Headliner. Before and after, activate to flip.">
+          <div class="flip-inner">
+            <figure class="flip-face front"><span class="tag">Before</span>
+              <img src="img/headliner-before.jpg" alt="Stained headliner before cleaning" loading="lazy"></figure>
+            <figure class="flip-face back"><span class="tag after">After</span>
+              <img src="img/headliner-after.jpg" alt="Clean headliner after cleaning" loading="lazy"></figure>
+          </div>
+          <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
+        </button>
+        <p class="cap"><b>Cloth Interior Deep Clean</b><span>Headliner</span></p>
+      </article>
+
+      <article class="ba-card reveal" data-cat="correction">
+        <button class="flip" type="button" aria-label="Red Metallic Paint Correction, Scratches out, gloss back. Before and after, activate to flip.">
+          <div class="flip-inner">
+            <figure class="flip-face front"><span class="tag">Before</span>
+              <img src="img/correction-red-before-2.jpg" alt="Swirl marks and scratches in dark red paint before correction" loading="lazy"></figure>
+            <figure class="flip-face back"><span class="tag after">After</span>
+              <img src="img/correction-red-after-1.jpg" alt="The same dark red paint polished clear after correction" loading="lazy"></figure>
+          </div>
+          <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
+        </button>
+        <p class="cap"><b>Red Metallic Paint Correction</b><span>Scratches out, gloss back</span></p>
+      </article>
+
+      <article class="ba-card reveal" data-cat="correction">
+        <button class="flip" type="button" aria-label="Truck Scratch Correction, Different areas of the same truck. Before and after, activate to flip.">
+          <div class="flip-inner">
+            <figure class="flip-face front"><span class="tag">Before</span>
+              <img src="img/correction-truck-before.jpg" alt="Scratched truck panel taped off before correction" loading="lazy"></figure>
+            <figure class="flip-face back"><span class="tag after">After</span>
+              <img src="img/correction-truck-after.jpg" alt="Corrected truck paint checked under a work light" loading="lazy"></figure>
+          </div>
+          <span class="flip-hint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span>Tap for after</span></span>
+        </button>
+        <p class="cap"><b>Truck Scratch Correction</b><span>Different areas of the same truck</span></p>
+      </article>
+
+    </div>
+
+    <div class="section-head" data-section="jobs" style="margin-top:3.4rem">
+      <p class="eyebrow">More Work</p>
+      <h2>Job by Job</h2>
+      <p class="lead">One card per vehicle and visit. Tap a photo to look closer, then use the arrows to step through the rest of that job.</p>
+    </div>
+    <div class="jobs" data-section="jobs">
 
       <article class="jobcard reveal" data-cat="interior exterior">
         <div class="jc-head"><h3>Lincoln Navigator, Full Mobile Detail</h3><span class="jc-tag">Full detail</span></div>
@@ -427,6 +423,6 @@
   <p class="lb-cap" hidden></p>
 </div>
 
-<script src="main.js?v=15"></script>
+<script src="main.js?v=16"></script>
 </body>
 </html>

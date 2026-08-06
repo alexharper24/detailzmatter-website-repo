@@ -42,19 +42,30 @@
   setTimeout(showAll, 2500);
 })();
 
-/* Gallery filters — filters whole job cards, and loose .g-item tiles if present */
+/* Gallery filters — hides whole before/after pairs and job cards, plus any loose
+   .g-item tiles. A section whose items all get filtered out is hidden along with its
+   heading, otherwise the page shows a title with nothing under it. */
 (function () {
   const btns = document.querySelectorAll('.filters button');
   if (!btns.length) return;
-  const items = document.querySelectorAll('.jobcard[data-cat], .g-item[data-cat]');
-  btns.forEach(btn => btn.addEventListener('click', () => {
-    btns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
+  const items = document.querySelectorAll('.jobcard[data-cat], .ba-card[data-cat], .g-item[data-cat]');
+  const apply = (f) => {
     items.forEach(it => {
       const cats = (it.dataset.cat || '').split(/\s+/);
       it.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
     });
+    ['ba', 'jobs'].forEach(name => {
+      const parts = document.querySelectorAll('[data-section="' + name + '"]');
+      const grid = Array.from(parts).find(p => p.matches('.ba-showcase, .jobs'));
+      if (!grid) return;
+      const any = Array.from(grid.children).some(c => c.style.display !== 'none');
+      parts.forEach(p => { p.style.display = any ? '' : 'none'; });
+    });
+  };
+  btns.forEach(btn => btn.addEventListener('click', () => {
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    apply(btn.dataset.filter);
   }));
 })();
 
