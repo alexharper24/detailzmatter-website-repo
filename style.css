@@ -1,7 +1,7 @@
 /* Detailz Matter, LLC — design tokens */
 :root{
   --navy:#101b26; --navy-deep:#0a121b; --navy-soft:#1b2a3a; --navy-line:#26374a;
-  --gold:#c9a25e; --gold-text:#7f663b; --gold-bright:#dcb878; --gold-deep:#8a6a33; --gold-mist:#f4ecdc;
+  --gold:#cfab6c; --gold-text:#7f663b; --gold-bright:#dcb878; --gold-deep:#846631; --gold-mist:#f4ecdc;
   --paper:#f7f5f0; --white:#fff;
   --ink:#1c2733; --ink-soft:#4c5b6a;
   --maxw:1180px; --radius:14px;
