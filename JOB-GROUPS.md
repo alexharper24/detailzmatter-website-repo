@@ -112,6 +112,61 @@ say so and the file plus every reference gets renamed together.
    far: Lincoln Navigator (Logan's own post) and Corvette (Alex).
 3. **Logan's bio text.** The About portrait now stretches to match whatever height
    the bio ends up being, so no layout work is needed when the copy lands.
+4. **Service on the two new exterior cards.** The Corvette Z06 and Gray SUV cards say
+   "Exterior Detail" because every photo of those jobs is an exterior shot. That is a
+   description of the photos, not a confirmed service. If either was actually a full
+   detail, a wash, or a correction, say so and the tag changes.
+5. **The Gray SUV's make and model.** Three photos, no legible badge. Card stays
+   generic ("Gray SUV") until confirmed.
+
+## Added 2026-08-12
+
+Alex added new photos and named the jobs directly, so these three groupings are
+trusted rather than batch-guessed.
+
+**New hero.** `corvette-hero.jpg` replaced `navigator-front.jpg` as the Home hero
+background, and is now also the Home `og:image` and the `AutomotiveBusiness` schema
+image. It arrived as a 2.2 MB PNG (`corvette home hero.png`) and was converted to a
+269 KB progressive JPEG. Same orange Z06 and same property as the six phone photos,
+so it is Logan's own work, not a stock press shot.
+
+**Image intake, for the next batch.** The phone photos all arrived at 640x480 with
+EXIF orientation 6, meaning they display portrait 480x640 only if the viewer honors
+EXIF. Every one was run through `ImageOps.exif_transpose` so the rotation is baked
+into the pixels and the EXIF is dropped, which is what earlier rotation commits in
+this repo were fixing by hand. Filenames also arrived with spaces and mixed case
+(`corvette zo6 1.jpeg`); all were normalized to lowercase and hyphenated with a
+`.jpg` extension, per the repo convention. 640x480 is low for a hero-adjacent
+gallery; larger originals are welcome if Logan has them.
+
+### Job: Corvette Z06, exterior detail
+Service:  exterior  (inferred from the photos, see "Still open" #4)
+Vehicle:  Chevrolet Corvette Z06, orange  (Alex named it; Z06 is badged)
+Photos:   corvette-zo6-6, corvette-zo6-3, corvette-zo6-2, corvette-zo6-1,
+          corvette-zo6-4, corvette-zo6-5  (display order; 6 leads the card)
+Before:   (none)
+After:    (none)
+Notes:    A DIFFERENT car from the white Corvette on the existing "Corvette, Wash &
+          Detail" card. Do not merge the two.
+
+### Job: Lifted Ford Super Duty, full detail
+Service:  full detail (interior + exterior)
+Vehicle:  Ford Super Duty crew cab, white, lifted  (both words are legible on the
+          vehicle; trim and engine deliberately not claimed)
+Photos:   ford-truck-1, ford-truck-4, ford-truck-2, ford-truck-6, ford-truck-3,
+          ford-truck-5  (display order)
+Before:   (none)
+After:    (none)
+Notes:    4 exterior, 2 interior. ford-truck-6 is the only landscape shot of the set.
+
+### Job: Gray SUV, exterior detail
+Service:  exterior  (inferred from the photos, see "Still open" #4)
+Vehicle:  do not publish the model  (no legible badge)
+Photos:   suv-gray-2, suv-gray-1, suv-gray-3  (display order)
+Before:   (none)
+After:    (none)
+Notes:    Not the purple Audi Q8 on the "Dark Metallic SUV" card. Different color,
+          different location, red calipers.
 
 ## Filled-in jobs
 

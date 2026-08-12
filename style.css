@@ -80,6 +80,11 @@ p{margin:.4rem 0 1rem}
 .hero{position:relative;background:var(--navy-deep);color:var(--paper);overflow:hidden}
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+/* corvette-hero.jpg is a wide 16:9 frame. At desktop the whole image fits the hero
+   box, but a phone-width cover crop only sees about a quarter of the width, and
+   centered that lands on the middle of the door, which reads as an orange blob.
+   Shift left so the strip covers the nose, headlight, and front wheel. */
+@media (max-width:640px){.hero .bg img{object-position:31% center}}
 .hero .bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(10,18,27,.72) 0%,rgba(10,18,27,.55) 45%,rgba(10,18,27,.92) 100%)}
 .hero .wrap{position:relative;z-index:2;padding:7.5rem 0 6.5rem;max-width:820px;text-align:center}

@@ -62,7 +62,12 @@ the noindex line from every page (grep for `DRAFT MODE`) and flip `robots.txt` t
       Vehicle makes/models are deliberately not claimed on the site except the
       Lincoln Navigator, which Logan named himself. Alex is sending screenshots
       grouped per job; fill in JOB-GROUPS.md, then rebuild the cards in
-      `gallery.html`.
+      `gallery.html`. Three jobs added 2026-08-12 (Corvette Z06, Lifted Ford Super
+      Duty, Gray SUV) **are** trusted groupings, because Alex named them.
+- [ ] **Service on the two new exterior cards** — the Corvette Z06 and Gray SUV cards
+      say "Exterior Detail" because every photo of those jobs is an exterior shot.
+      That describes the photos, not a confirmed service. Ask Logan whether either was
+      really a full detail, a wash, or a correction, and change the tag if so.
 - [ ] **Reviews: confirm the presentation.** Four Facebook recommendations are on
       the homepage as `Nicholas H.` / `Colton S.` / `Landon S.` / `Easton S.` with
       month and year. Decisions Logan should sign off on:
