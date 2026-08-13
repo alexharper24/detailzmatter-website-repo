@@ -148,6 +148,41 @@ Gallery tile images render at roughly 360 px and lightbox at up to full width, s
 target is about 1400 px on the long edge at quality 82, and about 2000 px for a hero
 or a full-row feature. Bake the EXIF rotation in and strip the EXIF, as below.
 
+## Pruning pass, 2026-08-13
+
+**The lightbox no longer wraps.** Reaching the last photo of a job should feel like
+the end of it. `step()` clamps instead of using modulo, and the arrows disable at the
+boundaries rather than disappearing, so the control does not shift position mid-walk.
+
+**Seven frames removed.** Two at Alex's direction: `red-ford-truck-8`, and
+`ford-maverick-2` whose frame was filled with a pressure washer, boxes and a
+motorcycle. Five as redundant back-to-back near-duplicates: `red-ford-truck-5` and
+`-7` (found by a 16x16 perceptual hash over consecutive photos, both above 0.91
+agreement), plus `grand-wagoneer-8`, `ford-st-suv-7` and `super-duty-dually-7`, which
+the hash was too conservative to flag but are plainly a second view of the frame
+before them. **Worth keeping the detector in mind for future batches**: consecutive
+pairs above ~0.85 hash agreement with a mean intensity difference under 18 are almost
+always redundant.
+
+**Two Chevrolet photos rotated counter-clockwise** and regenerated from the HEIC
+originals rather than rotating the derivative, so nothing is resampled twice.
+`chevy-suv-2` is now unambiguously right, dash horizontal and the placard readable.
+`chevy-suv-8` was shot landscape like the `chevy-suv-16` frame that reads correctly,
+so if it ever looks wrong it may want clockwise instead. PIL's `Image.rotate(90)` is
+counter-clockwise, which is easy to get backwards.
+
+**Grid is 15 cards in threes, showcase is 9 flips in threes.** Two cards came back
+from `img/archive/` to fill the last row: Black Toyota SUV and White Toyota Sedan,
+both adding a body style the other thirteen did not cover. The Ford chrome wheel flip
+was removed at Alex's request and its two images archived. Featured four are now
+Truck Scratch Correction, the cloth interior rear bench, the Porsche wheel and the
+Chevrolet third row; the remaining five sit behind the toggle.
+
+**A reconcile pass now recomputes chips, tile classes and footers from the live
+markup** after any card changes, instead of each script patching them by hand. Card
+edits should call it rather than adjusting counts inline, which is what silently
+dropped every desktop chip earlier in the day.
+
 ## Presentation pass, 2026-08-13
 
 **Four flips lead the showcase, six sit behind a toggle.** Featured: Red Metallic

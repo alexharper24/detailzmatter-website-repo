@@ -138,9 +138,12 @@
       cap.textContent = list.length > 1 ? `${label ? label + ' · ' : ''}${idx + 1} of ${list.length}` : label;
       cap.hidden = !cap.textContent;
     }
+    /* The set does not loop: reaching the last photo of a job should feel like the
+       end of it, not drop you back at the first. Arrows disable at the boundaries
+       rather than vanishing, so the control does not shift position mid-walk. */
     const many = list.length > 1;
-    if (prev) prev.hidden = !many;
-    if (next) next.hidden = !many;
+    if (prev) { prev.hidden = !many; prev.disabled = idx === 0; }
+    if (next) { next.hidden = !many; next.disabled = idx === list.length - 1; }
   };
   const open = (el) => {
     // Inside a job card, the set is that job's photos, so the arrows walk one
@@ -162,7 +165,12 @@
     lbImg.removeAttribute('src');
     document.body.style.overflow = '';
   };
-  const step = (d) => { idx = (idx + d + list.length) % list.length; render(); };
+  const step = (d) => {
+    const n = idx + d;
+    if (n < 0 || n >= list.length) return;   // clamp, do not wrap
+    idx = n;
+    render();
+  };
 
   triggers.forEach(el => {
     const img = imgOf(el);

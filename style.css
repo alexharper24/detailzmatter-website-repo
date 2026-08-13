@@ -207,6 +207,11 @@ section{padding:4.5rem 0}
   color:#fff;font-size:1.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .lightbox .lb-prev{left:.7rem}
 .lightbox .lb-next{right:.7rem}
+/* Ends of a set: the arrow stays in place so the controls do not jump, but reads as
+   unavailable. Pointer events off so a tap at the end does nothing rather than
+   looking broken. */
+.lightbox .lb-prev:disabled,.lightbox .lb-next:disabled{opacity:.25;cursor:default;
+  pointer-events:none}
 .lightbox .lb-cap{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);
   color:#e7e3d6;font-size:.9rem;background:rgba(10,18,27,.72);padding:.35rem 1rem;
   border-radius:999px;max-width:88vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -235,8 +240,9 @@ section{padding:4.5rem 0}
 /* Before & after showcase: two pairs per row, big enough to actually read the
    difference. Square frames because the pairs are a mix of portrait and landscape
    and a shared aspect keeps the rows aligned. */
-.ba-showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
-@media (max-width:860px){.ba-showcase{grid-template-columns:1fr}}
+.ba-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+@media (max-width:1080px){.ba-showcase{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.ba-showcase{grid-template-columns:1fr}}
 /* Four flips lead; the rest sit behind the toggle. Using :not(.expanded) means that
    once expanded we set no display at all, so the gallery filter's inline style stays
    in charge and a filtered-out card still hides correctly. */
