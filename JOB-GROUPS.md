@@ -148,6 +148,38 @@ Gallery tile images render at roughly 360 px and lightbox at up to full width, s
 target is about 1400 px on the long edge at quality 82, and about 2000 px for a hero
 or a full-row feature. Bake the EXIF rotation in and strip the EXIF, as below.
 
+## Presentation pass, 2026-08-13
+
+**Four flips lead the showcase, six sit behind a toggle.** Featured: Red Metallic
+Paint Correction, Chrome Wheel Detail, the Toyota Camry cloth interior and the
+Chevrolet third row. The other six (three more cloth-interior views of the same
+vehicle, the headliner, the truck scratch correction and the Porsche wheel) are
+`.ba-extra`. Picking any filter auto-expands the showcase, so filtering never hides
+a matching pair behind the toggle. The CSS uses `:not(.expanded)` deliberately: once
+expanded no display rule is set at all, leaving the filter's inline style in charge.
+
+**Two columns of job cards on mobile was considered and rejected.** Measured on a
+390px viewport: a card is 359px and each photo tile 175px. Two columns would put the
+card at 167px and the tile at **79px**, too small to tell a truck from an SUV. The
+fix that actually works is showing **two tiles per card instead of four on mobile**:
+the tile stays 175px, the media block halves from 359px to 178px, and the lightbox
+still walks every photo. Gallery scroll went from 16.4 screens to 10.9.
+
+Because tiles 3 and 4 hold the desktop `+N more` chip, each card now carries a second
+chip, `.jc-more-m`, on tile 2 with the mobile count. **Both chips must stay in sync
+with the photo count when a card changes.**
+
+Two bugs worth remembering, both caught in verification rather than by eye:
+
+- `.jc-more-m` also carries `.jc-more`, so at equal specificity source order decides.
+  The mobile-chip rules were first written above the `.jc-more` block and lost, which
+  showed the mobile chip on desktop and hid nothing. They now sit **after** that block
+  and the file says so.
+- The curation script stripped each card's old `+N more` chip and then tried to
+  re-insert using figure text captured *before* the strip, so `str.replace` silently
+  matched nothing and every desktop chip vanished. Anything doing find-then-replace on
+  HTML fragments must re-read the fragment after mutating the card.
+
 ## Curation pass, 2026-08-13: 30 job cards down to 13
 
 Alex's call, and the numbers backed it. The grid had reached **30 cards and 183

@@ -65,8 +65,30 @@
   btns.forEach(btn => btn.addEventListener('click', () => {
     btns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    /* Picking a filter is a request to see everything matching it, so expand the
+       held-back before/afters rather than silently hiding matches behind a toggle. */
+    if (btn.dataset.filter !== 'all') {
+      const sc = document.getElementById('baShowcase');
+      const tg = document.getElementById('baToggle');
+      if (sc && !sc.classList.contains('expanded')) {
+        sc.classList.add('expanded');
+        if (tg) tg.setAttribute('aria-expanded', 'true');
+      }
+    }
     apply(btn.dataset.filter);
   }));
+})();
+
+/* Before & after toggle. Four lead the section; the rest are revealed on demand. */
+(function () {
+  const btn = document.getElementById('baToggle');
+  const showcase = document.getElementById('baShowcase');
+  if (!btn || !showcase) return;
+  btn.addEventListener('click', () => {
+    const open = showcase.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open) showcase.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  });
 })();
 
 /* Flip cards — before on the front, after on the back */

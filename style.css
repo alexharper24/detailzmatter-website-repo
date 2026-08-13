@@ -237,6 +237,22 @@ section{padding:4.5rem 0}
    and a shared aspect keeps the rows aligned. */
 .ba-showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
 @media (max-width:860px){.ba-showcase{grid-template-columns:1fr}}
+/* Four flips lead; the rest sit behind the toggle. Using :not(.expanded) means that
+   once expanded we set no display at all, so the gallery filter's inline style stays
+   in charge and a filtered-out card still hides correctly. */
+.ba-showcase:not(.expanded) .ba-extra{display:none}
+.ba-toggle-wrap{display:flex;justify-content:center;margin:1.6rem 0 0}
+.ba-toggle{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;
+  font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--ink);
+  background:transparent;border:2px solid var(--navy-line);border-radius:8px;
+  padding:.7rem 1.4rem;min-height:44px;transition:border-color .18s ease,background .18s ease}
+.ba-toggle svg{transition:transform .22s ease}
+.ba-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.ba-toggle .ba-toggle-less{display:none}
+.ba-toggle[aria-expanded="true"] .ba-toggle-more{display:none}
+.ba-toggle[aria-expanded="true"] .ba-toggle-less{display:inline}
+@media (hover:hover){.ba-toggle:hover{border-color:var(--gold-deep);background:var(--gold-mist)}}
+.ba-toggle:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px}
 .ba-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);
   overflow:hidden;display:flex;flex-direction:column}
 .ba-card .flip{padding:4px 4px 0}
@@ -288,6 +304,20 @@ section{padding:4.5rem 0}
 .jc-more{position:absolute;inset:0;z-index:2;display:flex;align-items:center;
   justify-content:center;background:rgba(10,18,27,.6);color:#f1ecdf;
   font-family:var(--display);font-size:1.45rem;font-weight:700;letter-spacing:.04em}
+/* These two rules MUST stay after the .jc-more block above. .jc-more-m also carries
+   .jc-more, so at equal specificity the later rule wins; placing them earlier made the
+   mobile chip show on desktop and hid nothing. */
+.jc-more-m{display:none}
+/* On a phone the grid is one column, so a card is ~359px and each tile ~175px.
+   Two card columns would shrink the tile to 79px, too small to read a vehicle.
+   Show two tiles per card instead: the tile stays 175px and the card loses about half
+   its height. The lightbox still walks every photo in the job. */
+@media (max-width:700px){
+  .jc-media > figure:nth-of-type(n+3):not(.t-wide){display:none}
+  .jc-media > figure:nth-of-type(n+3).t-wide{display:none}
+  .jc-more:not(.jc-more-m){display:none}
+  .jc-more-m{display:flex}
+}
 .jc-foot{padding:.9rem 1.3rem 1.2rem;font-size:.92rem;color:var(--ink-soft);margin-top:auto;
   display:flex;align-items:center;gap:.4rem}
 .jc-foot svg{color:var(--gold-deep);flex:none}
