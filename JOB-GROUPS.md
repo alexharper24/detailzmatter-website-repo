@@ -148,6 +148,26 @@ Gallery tile images render at roughly 360 px and lightbox at up to full width, s
 target is about 1400 px on the long edge at quality 82, and about 2000 px for a hero
 or a full-row feature. Bake the EXIF rotation in and strip the EXIF, as below.
 
+## Blank-tile trap, 2026-08-13 (read this before removing a photo)
+
+Removing a figure from a card **shifts every later figure up one position**, and the
+hidden-tile optimization means figures past the 4th carry a blank data-URI `src` with
+no 700px file on disk. So deleting a photo from the first four promotes a blanked tile
+into the visible four and the card renders with an empty square. Alex caught exactly
+this on the Ford Maverick after `ford-maverick-2` was removed: the old photo 5 became
+photo 4, kept its blank src, and its tile file did not exist.
+
+**Any script that adds or removes figures must finish with the rehydrate pass**, which
+walks each card and, for the first four figures, swaps a blank `src` back to the real
+tile (rebuilding the 700px file from the `-lg` if it is missing) while re-blanking any
+real `src` that has fallen past position four. Only the Maverick was affected this
+time because every other removal happened at a position already past the fourth.
+
+**Verifying this needs eager loading.** Tiles are `loading="lazy"`, so
+`naturalWidth` is 0 for anything below the fold and a naive "is every visible tile
+painted" check reports the whole page as broken. Set `loading = 'eager'` on the images
+and wait before asserting.
+
 ## Pruning pass, 2026-08-13
 
 **The lightbox no longer wraps.** Reaching the last photo of a job should feel like
