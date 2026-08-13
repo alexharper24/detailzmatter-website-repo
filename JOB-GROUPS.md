@@ -119,6 +119,244 @@ say so and the file plus every reference gets renamed together.
 5. **The Gray SUV's make and model.** Three photos, no legible badge. Card stays
    generic ("Gray SUV") until confirmed.
 
+## Intake decisions, settled by Alex 2026-08-13
+
+These govern the 180-photo batch and every batch after it, including the ceramic
+coating set still to come.
+
+1. **Replacement is per job, not per photo.** When a new capture session supersedes a
+   job already on the site, the card's whole photo set is swapped for the new
+   session's photos, even if the count changes. The superseded low-res files move to
+   `img/archive/` and **stay tracked** (never deleted, per the repo-wide rule on image
+   assets). This was chosen over photo-for-photo matching specifically so that nobody
+   has to pair a new photo to an old one by eye.
+2. **A legibly badged name may be published.** If the model lettering or badge is
+   actually readable in the photo ("SUPER DUTY", the Audi rings), the card names it.
+   That is reading text off a photo, not inferring a model from its shape. Anything
+   not legibly badged stays generic, as the Gray SUV card does.
+
+**Sessions are cut from capture timestamps, not from appearance.** Every file arrives
+named `YYYYMMDD_HHMMSSmmm_iOS.*`, so a session boundary is any gap over one hour. For
+the 2026-08-13 batch that yielded 34 sessions from 180 files; 133 of the 179 gaps were
+under 5 minutes and 22 were over a day, so the clusters were not borderline. Sessions
+needing a human call because of a large internal gap: S03 (59 min), S15 (52 min),
+S07 (34 min). Dates holding more than one session, which may be one job shot before
+and after: S05/S06, S16/S17/S18, S19/S20, S21/S22/S23, S24/S25.
+
+**Derivative sizes.** Originals are 12 to 24 MP, far larger than the site needs.
+Gallery tile images render at roughly 360 px and lightbox at up to full width, so the
+target is about 1400 px on the long edge at quality 82, and about 2000 px for a hero
+or a full-row feature. Bake the EXIF rotation in and strip the EXIF, as below.
+
+## Second grouping pass, 2026-08-13 (before/after aware)
+
+Alex confirmed the pattern: many jobs open with a dirty wheel or interior shot, then
+the after set, and files sitting together in timestamp order lean toward one job.
+Every claim below was verified against side-by-side crops of the originals, not
+thumbnails.
+
+**Merges executed, now live as cards or card updates:**
+
+- **S13 + S14 = one Toyota Camry** (`CAMRY` embossed on the sill in the before shot,
+  so the model is read, not guessed). Live as "Toyota Camry, Interior Deep Clean"
+  plus a flip card in the Before & After showcase.
+- **S16 + S17 + S18 = one Ford crew cab** overnight job. The chrome wheel in S17
+  (hazy with brake dust) and S18-01 (mirror) are the same wheel design with the
+  same Ford cap. Live as "Ford Crew Cab, Cab & Wheel Detail" plus a wheel flip.
+- **S03 + S04 = one teal Porsche SUV.** Same staggered wheel set, front wheel filthy
+  on the 19th, rear wheel spotless on the 23rd. Live as "Porsche SUV, Wash & Wheel
+  Detail" plus a wheel flip whose caption notes it is front wheel before, rear after
+  (same honest pattern as the truck correction card).
+- **S21 + S22 + S23 + S24 all join the live Chevy card.** `CHEVROLET` is legible on
+  the S21 door sill and the S24 wheel cap carries the bowtie. The card is now
+  "Chevrolet Full-Size SUV, Interior & Wheels", 24 photos, with a third-row flip.
+- **S11 is its own job**: a SILVER Audi Q8 interior (a different vehicle from the
+  purple Q8). Live as "Audi Q8, Interior Detail".
+- **S15 is live** as "White Toyota Sedan, Full Detail"; the Toyota emblem is legible
+  on the wheel caps at full resolution, the trunk is debadged, so marque only.
+
+**Correction to the first-pass table: S19 does NOT merge into S20.** The S19 wheel
+is a Y-spoke design; the purple Q8's wheels in S20 are thin double-spokes. Different
+wheels, same yellow calipers. S19 is unplaced; ask which vehicle it belongs to.
+
+**S05 + S06 are one before/during pair of a KING RANCH interior** (the logo is
+embossed on the seatback). Same trim as the S10 Super Duty dually, but five weeks
+earlier, so they are NOT attached to that card without Alex confirming it is the
+same truck returning.
+
+**HIDDEN-TILE OPTIMIZATION, do not "fix" it back.** Jobcard figures past the 4th are
+display:none, but `loading="lazy"` does NOT defer a display:none image, so the page
+was fetching every hidden tile (~11 MB on a fresh phone visit). The fix, introduced
+by an edit to the conversion script and now applied everywhere: hidden figures carry
+a 1x1 data-URI gif as `src` and only `data-full` (the 1400px file the lightbox uses);
+their 700px tile file is not generated at all unless a flip card also displays it.
+A future session that sees gif `src` values in gallery.html or "missing" hidden-tile
+files must NOT restore them; that is the design. This was nearly reverted once
+already on 2026-08-13.
+
+**Housekeeping:** two tracked Facebook pulls
+(`522634249_...n.jpg`, `548019079_...n.jpg`) were re-encoded slightly larger by a
+Windows rotate in Explorer; the new bytes are staged. The ceramic batch's two exact
+duplicate files remain on disk, skipped.
+
+## Ceramic batch, 2026-08-13 (second delivery)
+
+25 files arrived, designated by Alex as ceramic coating work. **Two are exact
+byte-for-byte duplicates** (`sha256` match): `20250805_184226949_iOS 1.heic` and
+`20250913_175044234_iOS 1.heic` are copies of the same-named files without the " 1".
+They are skipped, not deleted. That leaves **23 unique photos in 8 sessions** (C1..C8,
+prefixed C to keep them distinct from the S-series above).
+
+`20241009_135227512_iOS.heic` shows a generic placeholder in Explorer. That is only a
+Windows thumbnail-cache miss; the file decodes fine.
+
+| C | Date | N | What the photos show | Status |
+|---|---|---|---|---|
+| C1 | 2024-10-09 13:52 | 1 | Red hood **off the vehicle** on a stand, red Ford truck behind | held |
+| C2 | 2024-10-09 16:13 | 2 | The same red hood, high gloss | held, pairs with C1 |
+| C3 | 2025-08-05 | 4 | Red BMW SUV, roundel on the wheel cap, in a shop with Ferrari/BMW signage | held, likely replaces `bmw-x6-*` |
+| C4 | 2025-08-17 | 2 | Black coupe, `5.0` fender badge, deep gloss | **live** |
+| C5 | 2025-09-13 | 6 | **Two vehicles.** White Corvette (C5-01/02), then a red BMW hood under an inspection light showing swirls (C5-03..06) | held, needs split |
+| C6 | 2025-09-20 | 1 | A near-featureless pale surface with a lamp reflection. No vehicle, no context | held, likely unusable |
+| C7 | 2025-09-29 | 2 | Black Ford crew cab, `4X4` bed badge, Ford oval on the wheel cap | **live** |
+| C8 | 2025-10-02 | 5 | Dark navy Ford panels, `FX4` badge, **masked with blue tape**, under an inspection light | held, reads as correction |
+
+**Two cards are live**: "Black Coupe, Ceramic Coating" (C4) and "Black Ford 4X4,
+Ceramic Coating" (C7). Both are new vehicles with no counterpart already on the site,
+both are two-photo exterior sessions so both tiles carry `.t-wide`.
+
+Named to the house style. The existing gallery already says "Red Coupe" and "Yellow
+Coupe" rather than naming the model, so C4 is "Black Coupe" even though `5.0` is
+legible; the badge is mentioned in the alt text instead. C7 is "Black Ford 4X4" because
+`4X4` and the Ford oval are both readable while no model name is. C7 is a stock-height
+truck and is **not** the lifted Super Duty from S31.
+
+**There is no Ceramic filter on the gallery.** The filter row is All / Paint Correction
+/ Interiors / Exteriors, so both new cards are `data-cat="exterior"` with "Ceramic" only
+as the card tag and in the title. Adding a fifth filter button is a structural change to
+the page and is Alex's call; `main.js` supports arbitrary `data-cat` values, so it is a
+small change whenever wanted.
+
+**Three sessions look like paint correction, not ceramic.** C8's blue masking tape and
+inspection lighting is polishing prep, and C5-03..06 are swirl-inspection shots. Alex
+designated the batch as ceramic, so rather than label them either way they are held. If
+any of it is correction, it matters: the Paint Correction filter currently has only the
+four legacy `correction-*` photos behind it, and C8 may be the hi-res version of the
+existing "Truck Scratch Correction" before/after card, whose before shot is literally
+described as a taped-off panel.
+
+## Processed 2026-08-13: nine cards live
+
+Alex said to proceed with everything unambiguous. These nine are on `gallery.html`,
+at the top of the job grid. All are **additions**, not replacements, so nothing was
+overwritten and `img/archive/` is still not needed.
+
+| Card | From | Photos |
+|---|---|---|
+| Jeep Grand Wagoneer, Full Detail | S28-01..15 | 15 |
+| Lifted Red Ford Truck, Full Detail | S28-16..27 | 12 |
+| Ford ST SUV, Full Detail | S29 | 15 |
+| Ford Super Duty Dually, Full Detail | S10 | 13 |
+| Lifted Ford Super Duty, Full Detail | S31 | 9 |
+| Chevrolet Full-Size SUV, Interior Detail | S25 | 16 |
+| Black Toyota SUV, Full Detail | S07 | 6 |
+| Ford Maverick, Full Detail | S08 | 5 |
+| Toyota Sedan, Interior Detail | S32 | 8 |
+
+**Names were read, not guessed.** `GRAND WAGONEER` is spelled out on the front door,
+`MAVERICK` on the tailgate, `SUPER DUTY` and `FX4 OFF ROAD` on both Super Dutys, an
+`ST` badge on the blue Ford. Where only the marque was legible the card stops there:
+"Black Toyota SUV" and "Chevrolet Full-Size SUV" claim no model, because no model
+lettering was readable even at 24 MP. The S28 seam sits at 18:49 / 18:50.
+
+**The white Grand Wagoneer is not the existing "White SUV" card.** That one is a white
+Range Rover Sport. Different vehicle, no collision.
+
+### The two-size image pipeline, new in this batch
+
+Tiles render about 215 px wide on desktop, so shipping a 1400 px file into a tile is
+waste. Each photo now gets:
+
+- `<slug>-<n>.jpg` at 700 px q78, about 69 KB, the tile. **Generated only for the four
+  tiles a card actually shows.**
+- `<slug>-<n>-lg.jpg` at 1400 px q82, about 280 KB, named in `data-full` and fetched
+  only when the lightbox opens.
+
+`main.js` now reads `lbImg.src = img.dataset.full || img.currentSrc || img.src`. Images
+with no `data-full` behave exactly as before, so every legacy card is untouched.
+
+Tiles 5 and up are `display:none` via `.jc-media > figure:nth-of-type(n+5)` and the
+lightbox pulls them from `data-full`, so their `src` is a 1x1 transparent GIF data URI
+rather than a real file. That guarantees a hidden tile can never cost a request, and it
+is why only 36 tile files exist for 99 photos. **If that CSS rule ever changes to show
+more than four tiles, re-run the processing script**, or the newly shown tiles will
+render as the blank placeholder.
+
+`site-checks` validates `src=` only, so it does **not** see `data-full`. It cannot
+catch an uncommitted `-lg` file. Those 99 references were verified by hand this
+session; a checker rule for `data-full` would be worth adding.
+
+## Session inventory, 2026-08-13 batch
+
+Read from the photos at full resolution. **"Seen" means legibly badged or plainly
+visible** (a Ford oval on a steering wheel, MAVERICK stamped on a tailgate, VOLVO on a
+door sill). **"Proposed" means Claude's read, awaiting Alex.** Nothing in the Proposed
+column goes on the site until confirmed.
+
+| S | Date | N | Seen in the photos | Proposed |
+|---|---|---|---|---|
+| 01 | 2023-12-16 | 2 | Yellow Ford Mustang, `5.0` fender badge, exterior | replaces `mustang-yellow-*` |
+| 02 | 2023-12-31 | 1 | Teal Porsche SUV, exterior | own job |
+| 03 | 2024-10-19 | 4 | Teal Porsche SUV, crest on wheel cap; mats out | own job, 2h span is one visit |
+| 04 | 2024-10-23 | 1 | Teal Porsche wheel | merge into S03? 4 days later |
+| 05 | 2025-05-23 | 1 | Saddle leather cabin, stained carpet | pairs with S06 |
+| 06 | 2025-05-23 | 1 | Same saddle cabin, carpet part-cleaned | pairs with S05 |
+| 07 | 2025-06-21 | 6 | Black Toyota RAV4, badge on wheel and grille, in + out | full detail |
+| 08 | 2025-06-23 | 5 | Grey Ford Maverick, `MAVERICK` on tailgate, in + out | full detail |
+| 09 | 2025-06-30 | 2 | Black leather seats, blue door sill | unidentified vehicle |
+| 10 | 2025-07-01 | 13 | Ford Super Duty King Ranch, saddle leather, 1 exterior | full detail |
+| 11 | 2025-07-14 | 6 | Audi Q8, rings on wheel, `Q8` on sill, interior | interior detail |
+| 12 | 2025-07-22 | 3 | Black Lincoln Navigator, cream leather, in + out | replaces `navigator-*` |
+| 13 | 2025-07-23 | 2 | Silver Toyota, soiled cloth interior | pairs with S14 |
+| 14 | 2025-07-24 | 4 | Silver Toyota, badge on wheel, clean interior | pairs with S13 |
+| 15 | 2025-07-30 | 3 | White Toyota sedan, in + out | full detail |
+| 16 | 2025-08-12 | 2 | Truck rear floor, grey cloth | merge S16+S17+S18 |
+| 17 | 2025-08-12 | 1 | Chrome wheel, Ford cap | merge S16+S17+S18 |
+| 18 | 2025-08-13 | 4 | Ford truck, grey cloth cabin | merge S16+S17+S18 |
+| 19 | 2025-09-02 | 1 | Audi wheel, yellow caliper | merge into S20 |
+| 20 | 2025-09-02 | 4 | Purple Audi Q8, rings on grille, exterior | replaces `audi-q8-*` |
+| 21 | 2025-09-15 | 3 | Black leather rear seats, wet floor | merge S21+S22+S23? |
+| 22 | 2025-09-15 | 1 | Door panel, water beading | merge S21+S22+S23? |
+| 23 | 2025-09-15 | 3 | Grey carpet cargo bay | merge S21+S22+S23? |
+| 24 | 2025-09-16 | 1 | Machined alloy wheel | merge into S25? |
+| 25 | 2025-09-16 | 16 | Dark Chevrolet full-size SUV, interior | interior detail |
+| 26 | 2025-10-02 | 3 | Black Volvo XC90, exterior | replaces `volvo-xc90-*` |
+| 27 | 2025-10-03 | 10 | Black Volvo, cream leather, `VOLVO` on sill, interior | merge into S26 |
+| 28 | 2025-11-23 | 27 | **Two vehicles.** White full-size SUV, tan leather (S28-01..15); red lifted Ford F-150, black interior (S28-16..27) | split into two jobs |
+| 29 | 2026-01-11 | 15 | Blue-grey Ford Explorer, badge on wheel, in + out | full detail |
+| 30 | 2026-03-12 | 10 | Red Ford Mustang, pony badge on wheel, in + out | full detail |
+| 31 | 2026-04-26 | 9 | Black lifted Ford Super Duty, oval on wheel, in + out | full detail |
+| 32 | 2026-06-28 | 8 | Toyota sedan, badge on wheel, ivory cloth, interior | interior detail |
+| 33 | 2026-08-04 | 1 | **A Rolodex card file on a desk.** Not a vehicle | exclude |
+| 34 | 2026-08-09 | 2 | Two MOV clips only | held, see below |
+
+**The paper floor mats read "We take PRIDE in your RIDE."** That is a slogan on a
+disposable mat, not another business name, so it is not a repeat of the HEUN'S
+question in the README. It does differ from the site's tagline, "We Shine Your Ride".
+Worth asking Logan which he wants used.
+
+**Nothing in this batch matches the three jobs added 2026-08-12.** No orange Corvette
+Z06, no white Super Duty matching `ford-truck-*`, no grey SUV with red calipers. Those
+15 files stay at 480x640 unless the ceramic batch carries them.
+
+**No paint-correction photos in this batch.** No taped panels, no polisher, no swirl
+crops. The existing `correction-*` files remain the only correction evidence on the
+site, so the Paint Correction filter gains nothing here.
+
+**Video is held at Alex's direction (2026-08-13).** The 7 MOV clips stay in
+`source-photos/work/`. They are gitignored, and there is no ffmpeg on this machine, so
+transcoding needs a tool decision before the site can carry video.
+
 ## Added 2026-08-12
 
 Alex added new photos and named the jobs directly, so these three groupings are

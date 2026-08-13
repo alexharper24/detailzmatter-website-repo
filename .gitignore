@@ -1,0 +1,29 @@
+# Large source media. Only the web-optimized derivatives in img/ are committed.
+#
+# source-photos/work/ holds ~890 MB of untouched iOS originals (HEIC + MOV) that
+# Logan and Alex hand over in batches. Committing them would bloat the repo
+# permanently and stall the push, which is exactly the failure this repo family
+# has hit before. Convert to a sized JPEG in img/ and commit that instead.
+#
+# Note the existing tracked .jpg/.png files under source-photos/ predate this
+# file and stay tracked; .gitignore does not untrack anything already committed.
+*.heic
+*.HEIC
+*.heif
+*.HEIF
+*.MOV
+*.mov
+*.dng
+*.DNG
+*.psd
+*.PSD
+*.cr2
+*.CR2
+*.arw
+*.ARW
+
+# Secrets, if this repo ever gains a backend
+.env
+.env.*
+.dev.vars
+local.settings.json

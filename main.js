@@ -103,7 +103,10 @@
   const render = () => {
     const el = list[idx];
     const img = imgOf(el);
-    lbImg.src = img.currentSrc || img.src;
+    /* Tiles render around 215px, so they ship a small file. Where a hi-res original
+       exists it is written to data-full and only fetched when the lightbox opens.
+       Images without data-full keep the old behaviour exactly. */
+    lbImg.src = img.dataset.full || img.currentSrc || img.src;
     lbImg.alt = img.alt || '';
     if (cap) {
       const fc = el.querySelector('figcaption')
