@@ -148,6 +148,42 @@ Gallery tile images render at roughly 360 px and lightbox at up to full width, s
 target is about 1400 px on the long edge at quality 82, and about 2000 px for a hero
 or a full-row feature. Bake the EXIF rotation in and strip the EXIF, as below.
 
+## Curation pass, 2026-08-13: 30 job cards down to 13
+
+Alex's call, and the numbers backed it. The grid had reached **30 cards and 183
+photos**, including **8 truck cards**, 12 SUV cards, "Compact SUV" twice, and three
+Toyota cards a visitor could not tell apart.
+
+**Two rules now govern the Our Work grid. Adding a job means displacing one.**
+
+1. **One card per vehicle archetype, best example wins.** Priority order when
+   choosing: hi-res beats low-res, then a job with a before/after, then a job with
+   both interior and exterior, then the aspirational vehicles (people trust a
+   detailer more when they see he is handed the keys to a Corvette).
+2. **Eight photos per card, maximum.** A 21-photo lightbox walk is more than anyone
+   does. Cards were trimmed from the front of their display order, which was already
+   arranged best-first.
+
+The 13: Grand Wagoneer, Chevrolet Full-Size SUV, Lincoln Navigator, Super Duty
+Dually, Lifted Red Ford Truck, Ford ST SUV, Ford Maverick, Porsche SUV, Corvette Z06,
+Dark Metallic SUV, Toyota Camry, Black Coupe (ceramic), Black Ford 4X4 (ceramic).
+
+**Cut job cards keep their flip cards.** Flip cards are separate `.ba-card` articles
+in `.ba-showcase`, so cutting a job card does not remove its before/after. The Ford
+Crew Cab card is gone but its chrome wheel flip is still the strongest thing in the
+showcase. All 10 flips survive.
+
+**129 image files moved to `img/archive/` and stay tracked**, per the repo rule about
+never deleting image assets. The archive sweep computes references across every HTML
+file plus main.js and style.css first, so files used elsewhere were not swept: the
+Home and Services pages use `audi-q8-profile`, `mustang-yellow-front`,
+`correction-red-after-1` and `navigator-seats`, and all four stayed put.
+
+**The Paint Correction filter shows zero job cards.** It only ever shows the two
+correction flips. That is the service the whole site is positioned around, so it is
+the biggest remaining content gap. Decisions 16 and 17 (whether the C8 taped panels
+and the C5 swirl shots are correction rather than ceramic) would fix it directly.
+
 ## Second grouping pass, 2026-08-13 (before/after aware)
 
 Alex confirmed the pattern: many jobs open with a dirty wheel or interior shot, then
