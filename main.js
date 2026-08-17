@@ -72,6 +72,7 @@
       const tg = document.getElementById('baToggle');
       if (sc && !sc.classList.contains('expanded')) {
         sc.classList.add('expanded');
+        if (window.__revealBaImages) window.__revealBaImages();
         if (tg) tg.setAttribute('aria-expanded', 'true');
       }
     }
@@ -79,15 +80,31 @@
   }));
 })();
 
-/* Before & after toggle. Four lead the section; the rest are revealed on demand. */
+/* Before & after toggle. Three lead the section; the rest are revealed on demand.
+
+   The collapsed cards are display:none, and loading="lazy" does NOT defer a
+   display:none image, so their real srcs would download on every page load without
+   ever being seen. They ship a blank data URI plus data-src, and the real file is
+   attached the first time the section opens. Same reason the hidden job-card tiles are
+   blank; see the note in gallery.html. */
 (function () {
   const btn = document.getElementById('baToggle');
   const showcase = document.getElementById('baShowcase');
-  if (!btn || !showcase) return;
+  if (!showcase) return;
+
+  window.__revealBaImages = () => {
+    showcase.querySelectorAll('img[data-src]').forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    });
+  };
+
+  if (!btn) return;
   btn.addEventListener('click', () => {
     const open = showcase.classList.toggle('expanded');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (!open) showcase.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    if (open) window.__revealBaImages();
+    else showcase.scrollIntoView({ block: 'start', behavior: 'smooth' });
   });
 })();
 

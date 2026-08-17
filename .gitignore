@@ -5,8 +5,11 @@
 # permanently and stall the push, which is exactly the failure this repo family
 # has hit before. Convert to a sized JPEG in img/ and commit that instead.
 #
-# Note the existing tracked .jpg/.png files under source-photos/ predate this
-# file and stay tracked; .gitignore does not untrack anything already committed.
+# The whole source-photos tree is ignored, not just the raw formats. The 62 tracked
+# .jpg/.png in there were untracked on 2026-08-13 with `git rm -r --cached`, and
+# without this directory rule the very next `git add -A` would put all 30 MB straight
+# back. Web derivatives belong in img/; nothing under source-photos/ is ever committed.
+source-photos/
 *.heic
 *.HEIC
 *.heif

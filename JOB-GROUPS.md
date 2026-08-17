@@ -148,6 +148,52 @@ Gallery tile images render at roughly 360 px and lightbox at up to full width, s
 target is about 1400 px on the long edge at quality 82, and about 2000 px for a hero
 or a full-row feature. Bake the EXIF rotation in and strip the EXIF, as below.
 
+## Portfolio audit remediation, 2026-08-13
+
+**Image dimensions were deliberately NOT added, and that is the right call here.**
+The audit flagged 100 of 124 images as missing `width`/`height` and called it layout
+shift on every one. Measured CLS on gallery.html is **0.0000 with zero shift events**,
+because `.jc-media > figure` and `.flip-inner` both set `aspect-ratio`, which reserves
+space exactly as the attributes would. The remaining unsized image is the lightbox's
+`<img alt="">` placeholder in a fixed overlay. Adding attributes would be churn with no
+measurable gain. **Measure CLS before acting on an unsized-image count anywhere else.**
+
+**Page weight: gallery.html went 7.19 MB to 2.40 MB.** Four separate causes, in
+descending order of saving:
+
+1. **Tiles were 700px for a slot that renders 184px.** Right-sized to 400px, which is
+   2x DPR for that slot. Flip cards render ~378px in the three-up grid so they keep
+   700px, and the `-lg` lightbox files stay 1400px.
+2. **WebP throughout the gallery** at quality 82, following the direct-`src` pattern
+   already used on faithsblissfuldelights rather than kfc's `<picture>` + srcset.
+3. **The six collapsed flip cards were downloading anyway.** Same trap as the hidden
+   job tiles: `display:none` does not stop `loading="lazy"`. They now ship a blank data
+   URI plus `data-src`, and `window.__revealBaImages()` attaches the real files the
+   first time the section opens, from either the toggle or a filter click. 0.62 MB.
+4. Superseded originals moved to `img/archive/`, tracked, not deleted.
+
+**Images shared with another page get a gallery-specific copy**, suffixed `-g400` or
+`-g700`, rather than one file serving two very different slots. `navigator-front.jpg`
+is the reason: it is a 1448px `og:image` on contact.html and a 184px tile here.
+
+**A shared image can be referenced from a `content=` attribute, not just `src`.** The
+first WebP pass archived `navigator-front.jpg` because it only scanned `src` and
+`data-full`, which broke contact.html's `og:image`. Any sweep that moves or converts an
+image must also scan `og:image`, `twitter:image` and the JSON-LD `"image"` field.
+
+**Other fixes:** every page now has exactly one `h1` (was 2 of 6; inner pages used `h2`
+for the page title). `.section-head h1` holds the h2 type scale so nothing looks
+different. `source-photos/` is untracked and now ignored as a whole directory, because
+ignoring only the raw formats left 62 committed jpg/png that the next `git add -A`
+would have restored. `.github/workflows/site-checks.yml` added, so this repo finally
+runs the same CI as the other fourteen site repos. `before-after-preview.html` deleted
+per the house rule, its decision having been recorded here long ago.
+
+**Verifying page weight needs a cache-buster on the document.** `?v=` busts CSS and JS
+but not the HTML, so a stale gallery.html served from cache will reference archived
+files and look catastrophically broken. Also note `\bsrc="` in a regex matches
+`data-src="`; use `(?<![-\w])src="`.
+
 ## Blank-tile trap, 2026-08-13 (read this before removing a photo)
 
 Removing a figure from a card **shifts every later figure up one position**, and the

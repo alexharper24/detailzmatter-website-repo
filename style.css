@@ -24,6 +24,11 @@ h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0 0 .5rem;
   text-transform:uppercase;letter-spacing:.02em}
 h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800}
 h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700}
+/* Inner pages have no hero, so their page title lives in a .section-head banner. It
+   must be an h1 for screen readers and search, but at the h2 scale, otherwise the
+   banner heading is nearly twice the size it was designed at. The hero h1 on Home is
+   untouched because the hero is not a .section-head. */
+.section-head h1{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700}
 h3{font-size:1.25rem;font-weight:700;letter-spacing:.04em}
 .eyebrow{font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.22em;
   text-transform:uppercase;color:var(--gold-deep);margin:0 0 .8rem}
